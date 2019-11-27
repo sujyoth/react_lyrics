@@ -35,7 +35,7 @@ export default function App() {
       <View style={styles.categoryTextContainer}>
         <Text style={styles.categoryText}>Search History</Text>
       </View>
-      <ScrollView>
+      <ScrollView style={{flexDirection: 'column'}}>
         {searchHistory.map((element) => (
           <View style={styles.listItem} key={element}>
             <Text style={styles.listItemText}>

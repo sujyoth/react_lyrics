@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, TextInput, View, Button, ScrollView } from 'react-native'
+import { StyleSheet, Text, TextInput, View, Button, FlatList } from 'react-native'
 import { setAutoFocusEnabled } from 'expo/build/AR'
 
 export default function App() {
@@ -11,11 +11,11 @@ export default function App() {
   }
 
   const addToHistoryHandler = () => {
-    console.log(`Added ${searchedSong} to History`)
     // Adding searched text to Search History array
-    setSearchHistory(searchHistory => [...searchHistory, searchedSong])
+    setSearchHistory(searchHistory => [...searchHistory, { key: Math.random().toString(), value: searchedSong }])
     // Resetting input text after search
     setSearchedText('') 
+    console.log(`Added ${searchedSong} to History`)
   }
 
   return (
@@ -35,16 +35,18 @@ export default function App() {
       <View style={styles.categoryTextContainer}>
         <Text style={styles.categoryText}>Search History</Text>
       </View>
-      <ScrollView style={{flexDirection: 'column'}}>
-        {searchHistory.map((element) => (
-          <View style={styles.listItem} key={element}>
+      <FlatList 
+        data={searchHistory} 
+        renderItem={itemData => 
+          <View style={styles.listItem} key={itemData.index}>
             <Text style={styles.listItemText}>
-              {element}
+              {itemData.item.value}
             </Text>
           </View>
-        ))
-      }
-      </ScrollView>
+        }
+      />
+
+
     </View>
   )
 }

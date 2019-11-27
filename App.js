@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, TextInput, View, Button, FlatList } from 'react-native'
-import { setAutoFocusEnabled } from 'expo/build/AR'
+import SearchItem from './components/SearchItem'
 
 export default function App() {
   const [searchedSong, setSearchedText] = useState('')
@@ -37,16 +37,8 @@ export default function App() {
       </View>
       <FlatList 
         data={searchHistory} 
-        renderItem={itemData => 
-          <View style={styles.listItem} key={itemData.index}>
-            <Text style={styles.listItemText}>
-              {itemData.item.value}
-            </Text>
-          </View>
-        }
+        renderItem={itemData => <SearchItem title={itemData.item.value}/>}
       />
-
-
     </View>
   )
 }
@@ -70,14 +62,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1, 
     padding: 10,
     marginRight: 10
-  },
-  listItem: {
-    padding: 10,
-    borderBottomColor: '#fff',
-    borderBottomWidth: 1
-  },
-  listItemText: {
-    color: '#fff'
   },
   categoryTextContainer: {
     padding: 10,

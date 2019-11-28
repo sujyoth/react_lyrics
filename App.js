@@ -16,6 +16,15 @@ export default function App() {
     console.log(`Added ${searchedSong} to History`)
   }
 
+  const removeFromHistoryHandler = (searchedSongId) => {
+    // Using a filter on search history
+    // We check the key of the element in search history against the ids of the elements in list
+    // The filter will retain only items which return true for the given condition
+    setSearchHistory(searchHistory => {
+      return searchHistory.filter((song) => song.key !== searchedSongId)
+    })
+  }
+
   return (
     <View style={styles.screen} >
       <SearchInput onSearch={addToHistoryHandler} />
@@ -24,7 +33,13 @@ export default function App() {
       </View>
       <FlatList
         data={searchHistory}
-        renderItem={itemData => <SearchItem title={itemData.item.value} onDelete={() => console.log(`Deleting item... ${itemData.item.key}`)} />}
+        renderItem={itemData => (
+        <SearchItem
+          id={itemData.item.key}
+          title={itemData.item.value}
+          onDelete={removeFromHistoryHandler}
+        />
+        )}
       />
     </View>
   )

@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 const SearchItem = props => {
     return (
-        <TouchableOpacity onPress={props.onDelete}>
+        <TouchableOpacity id={props.id} onPress={props.onDelete.bind(this, props.id)}>
             <View style={styles.listItem}>
                 <Text style={styles.listItemText}>
                     {props.title}

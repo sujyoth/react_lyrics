@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, TextInput, View, Button, FlatList } from 'react-native'
+import { StyleSheet, Text, View, FlatList } from 'react-native'
 import SearchInput from './components/SearchInput'
 import SearchItem from './components/SearchItem'
 

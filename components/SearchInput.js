@@ -10,31 +10,32 @@ const SearchInput = props => {
 
     return (
         <View style={styles.inputContainer}>
-        <TextInput 
-            placeholder="Search for song or artist." 
-            style={styles.inputText} 
-            onChangeText={setSearchedText}
-            value={searchedSong} 
-        />
-        <Button 
-            title="Search" 
-            onPress={() => props.onSearch(searchedSong)}
-        />
-      </View>
+            <TextInput
+                placeholder="Search for song or artist."
+                style={styles.inputText}
+                onChangeText={setSearchedText}
+                value={searchedSong}
+            />
+            <Button
+                title="Search"
+                onPress={() => props.onSearch(searchedSong)}
+            />
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
     inputContainer: {
-        flexDirection: 'row', 
-        justifyContent: 'space-between', 
+        paddingHorizontal: 10,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
         alignItems: 'center'
     },
     inputText: {
         flex: 1,
         color: '#fff',
-        borderBottomColor: '#fff', 
-        borderBottomWidth: 1, 
+        borderBottomColor: '#fff',
+        borderBottomWidth: 1,
         padding: 10,
         marginRight: 10
     }

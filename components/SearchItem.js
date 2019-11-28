@@ -1,25 +1,27 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 const SearchItem = props => {
     return (
-        <View style={styles.listItem}>
-            <Text style={styles.listItemText}>
-                {props.title}
-            </Text>
-        </View>
+        <TouchableOpacity onPress={props.onDelete}>
+            <View style={styles.listItem}>
+                <Text style={styles.listItemText}>
+                    {props.title}
+                </Text>
+            </View>
+        </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
     listItem: {
         padding: 10,
-        borderBottomColor: '#fff',
-        borderBottomWidth: 1
-      },
-      listItemText: {
-        color: '#fff'
-      }
+        borderBottomColor: '#4b4c4e',
+        borderBottomWidth: 0.5
+    },
+    listItemText: {
+        color: '#fff',
+    }
 })
 
 export default SearchItem

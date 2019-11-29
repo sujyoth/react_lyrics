@@ -7,6 +7,8 @@ export default function App() {
   const [searchHistory, setSearchHistory] = useState([])
 
   const addToHistoryHandler = (searchedSong) => {
+    if (searchedSong == '')
+      return
     // Adding searched text to Search History array
     setSearchHistory(searchHistory => [...searchHistory, { key: Math.random().toString(), value: searchedSong }])
 

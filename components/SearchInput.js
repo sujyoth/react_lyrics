@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-
 const SearchInput = props => {
     const [searchedSong, setSearchedText] = useState('')
 
@@ -39,7 +38,7 @@ const styles = StyleSheet.create({
         color: '#cfd9e5',
         borderBottomColor: '#5893df',
         borderBottomWidth: 1,
-        padding: 10,
+        padding: 5,
         marginRight: 10
     },
     searchButton: {

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, View, FlatList } from 'react-native'
-import SearchInput from './components/SearchInput'
-import SearchItem from './components/SearchItem'
+import SearchInput from '../components/SearchInput'
+import SearchItem from '../components/SearchItem'
 
-export default function App() {
+export default function SearchScreen() {
   const [searchHistory, setSearchHistory] = useState([])
 
   const addToHistoryHandler = (searchedSong) => {
@@ -49,7 +49,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   screen: {
-    paddingTop: 40,
+    //paddingTop: 40,
     height: '100%',
     backgroundColor: '#192231'
   },

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { View, TextInput, Button, StyleSheet } from 'react-native'
+import { View, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 const SearchInput = props => {
     const [searchedSong, setSearchedText] = useState('')
@@ -16,11 +18,11 @@ const SearchInput = props => {
                 onChangeText={setSearchedText}
                 value={searchedSong}
             />
-            <Button
-                title="Search"
-                style={styles.searchButton}
-                onPress={() => props.onSearch(searchedSong)}
-            />
+            <TouchableOpacity activeOpacity={0.7} onPress={() => props.onSearch(searchedSong)}>
+                <View>
+                    <Icon name="search" style={styles.searchButton} />
+                </View>
+            </TouchableOpacity>
         </View>
     )
 }
@@ -41,7 +43,9 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
     searchButton: {
-        backgroundColor: '#5893df'
+        padding: 5,
+        fontSize: 20,
+        color: '#5893df'
     }
 })
 

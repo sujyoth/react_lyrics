@@ -29,16 +29,16 @@ export default function App() {
     <View style={styles.screen} >
       <SearchInput onSearch={addToHistoryHandler} />
       <View style={styles.categoryTextContainer}>
-        <Text style={styles.categoryText}>Search History</Text>
+            <Text style={styles.categoryText}>Search History</Text>
       </View>
       <FlatList
         data={searchHistory}
         renderItem={itemData => (
-        <SearchItem
-          id={itemData.item.key}
-          title={itemData.item.value}
-          onDelete={removeFromHistoryHandler}
-        />
+          <SearchItem
+            id={itemData.item.key}
+            title={itemData.item.value}
+            onDelete={removeFromHistoryHandler}
+          />
         )}
       />
     </View>

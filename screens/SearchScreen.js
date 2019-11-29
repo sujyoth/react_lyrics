@@ -49,7 +49,7 @@ export default function SearchScreen() {
 
 const styles = StyleSheet.create({
   screen: {
-    //paddingTop: 40,
+    paddingTop: 40,
     height: '100%',
     backgroundColor: '#192231'
   },

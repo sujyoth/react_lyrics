@@ -16,11 +16,11 @@ const SearchItem = props => {
 const styles = StyleSheet.create({
     listItem: {
         padding: 10,
-        borderBottomColor: '#4b4c4e',
+        borderBottomColor: '#283854',
         borderBottomWidth: 0.5
     },
     listItemText: {
-        color: '#fff',
+        color: '#cfd9e5'
     }
 })
 

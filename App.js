@@ -49,14 +49,14 @@ const styles = StyleSheet.create({
   screen: {
     paddingTop: 40,
     height: '100%',
-    backgroundColor: '#1c1d21'
+    backgroundColor: '#192231'
   },
   categoryTextContainer: {
     padding: 10,
     marginTop: 10,
-    backgroundColor: '#4b4c4e',
+    backgroundColor: '#24344d',
   },
   categoryText: {
-    color: '#fff'
+    color: '#cfd9e5'
   }
 })

@@ -18,6 +18,7 @@ const SearchInput = props => {
             />
             <Button
                 title="Search"
+                style={styles.searchButton}
                 onPress={() => props.onSearch(searchedSong)}
             />
         </View>
@@ -33,11 +34,14 @@ const styles = StyleSheet.create({
     },
     inputText: {
         flex: 1,
-        color: '#fff',
-        borderBottomColor: '#fff',
+        color: '#cfd9e5',
+        borderBottomColor: '#5893df',
         borderBottomWidth: 1,
         padding: 10,
         marginRight: 10
+    },
+    searchButton: {
+        backgroundColor: '#5893df'
     }
 })
 

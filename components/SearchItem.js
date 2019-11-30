@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 const SearchItem = props => {
     return (
-        <TouchableOpacity onPress={() => {console.log("Open new page")}}>
+        <TouchableOpacity onPress={() => props.onSelect()}>
             <View style={styles.listItem}>
                 <Text style={styles.listItemText}>
                     {props.title}

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, FlatList } from 'react-native'
 import SearchInput from '../components/SearchInput'
 import SearchItem from '../components/SearchItem'
 
-export default function SearchScreen() {
+const SearchScreen = props => {
   const [searchHistory, setSearchHistory] = useState([])
 
   const addToHistoryHandler = (searchedSong) => {
@@ -40,6 +40,7 @@ export default function SearchScreen() {
             id={itemData.item.key}
             title={itemData.item.value}
             onDelete={removeFromHistoryHandler}
+            onSelect={() => props.navigation.navigate('Lyrics')}
           />
         )}
       />
@@ -63,3 +64,5 @@ const styles = StyleSheet.create({
     color: '#cfd9e5'
   }
 })
+
+export default SearchScreen

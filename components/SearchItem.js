@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     },
     listItemText: {
         flex: 1,
+        fontSize: 14,
         color: '#cfd9e5'
     },
     deleteButton: {

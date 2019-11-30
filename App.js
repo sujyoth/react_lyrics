@@ -4,13 +4,14 @@ import SearchScreen from './screens/SearchScreen'
 import LyricsScreen from './screens/LyricsScreen'
 
 const MainNavigator = createStackNavigator({
-  Search: {
-    screen: SearchScreen,
-    navigationOptions: {
-      header: null,
-    }
-  },
+  Search: { screen: SearchScreen },
   Lyrics: { screen: LyricsScreen }
+},
+{
+  headerMode: 'none',
+  navigationOptions: {
+    headerShown: false,
+  }
 })
 
 export default App = createAppContainer(MainNavigator)

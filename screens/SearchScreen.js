@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#24344d',
   },
   categoryText: {
+    fontSize: 16,
     color: '#cfd9e5'
   }
 })

@@ -2,9 +2,10 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
 const LyricsScreen = props => {
+    console.log(props.navigation.getParam('songName'))
     return (
         <View style={styles.screen}>
-            <Text style={styles.categoryText}>This is lyrics screen</Text>
+            <Text style={styles.categoryText}>{props.navigation.getParam('songName')}</Text>
         </View>
     )
 }

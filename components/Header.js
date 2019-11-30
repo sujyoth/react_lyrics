@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-export default Header = props => {
+const Header = props => {
     return (
         <View style={styles.header}>
             <Text styles={styles.headerText}>{props.title}</Text>
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 90,
         padding: 36,
-        backgroundColor: '#131c29',
+        backgroundColor: '#232c39',
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -23,3 +23,5 @@ const styles = StyleSheet.create({
         fontSize: 18
     }
 })
+
+export default Header

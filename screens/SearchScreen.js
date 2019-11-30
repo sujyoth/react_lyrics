@@ -4,6 +4,10 @@ import SearchInput from '../components/SearchInput'
 import SearchItem from '../components/SearchItem'
 
 const SearchScreen = props => {
+  const navigationOptions = {
+    title: 'Home'
+  }
+
   const [searchHistory, setSearchHistory] = useState([])
 
   const addToHistoryHandler = (searchedSong) => {
@@ -40,7 +44,7 @@ const SearchScreen = props => {
             id={itemData.item.key}
             title={itemData.item.value}
             onDelete={removeFromHistoryHandler}
-            onSelect={() => props.navigation.navigate('Lyrics')}
+            onSelect={() => props.navigation.navigate('Lyrics', {songName: 'Hallelujah'})}
           />
         )}
       />

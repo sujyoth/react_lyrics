@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { StyleSheet, Text, View, FlatList } from 'react-native'
 import SearchInput from '../components/SearchInput'
 import SearchItem from '../components/SearchItem'
+import { throttle, debounce } from 'throttle-debounce'
 
 const SearchScreen = props => {
   const navigationOptions = {

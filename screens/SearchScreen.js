@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard } from 'react-native'
 import SearchItem from '../components/SearchItem'
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -14,10 +14,31 @@ const SearchScreen = props => {
     setSearchedText(searchedSong) // For controlled component
   }
 
+  const getSearchResults = async () => {
+    const url = `https://api.spotify.com/v1/search?q=${searchedText}&type=track&limit=10&access_token=BQApYLDvPey7P1SZeaL-D51p7A4zCHNuBG7vxSBp7fut2mEhskaUhv_-O7K9dfWblDVdekOvTWx0i74ofgxQmH7cbiYZVdcsTnJRtB7oOrryzhRjKu_oulsPey-kuaSJI8daVUlB1rk1Xlf0ubjVLaS6g92ldRM`
+    await fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        setSearchResults(data['tracks']['items'])
+      })
+  }
+
+  const throttleSearch = throttle(400, getSearchResults)
+  const debounceSearch = debounce(700, getSearchResults)
+
+  useEffect(() => {
+    if (searchedText.length > 0) {
+      if (searchedText.length < 5 || searchedText.endsWith(' '))
+        throttleSearch()
+      else
+        debounceSearch()
+    }
+  }, [searchedText])
+
   const addToHistoryHandler = () => {
-    console.log('Searching..')
     if (searchedText.length == 0)
       return
+
     // Adding searched text to Search History array
     setSearchHistory(searchHistory => [...searchHistory, { key: Math.random().toString(), value: searchedText }])
 
@@ -28,20 +49,14 @@ const SearchScreen = props => {
   }
 
   const removeFromHistoryHandler = (searchedSongId) => {
-    // Using a filter on search history
-    // We check the key of the element in search history against the ids of the elements in list
-    // The filter will retain only items which return true for the given condition
+    /*
+    Using a filter on search history
+    We check the key of the element in search history against the ids of the elements in list
+    The filter will retain only items which return true for the given condition
+    */
     setSearchHistory(searchHistory => {
       return searchHistory.filter((song) => song.key !== searchedSongId)
     })
-  }
-
-  const getSearchResults = () => {
-    const url = `https://api.deezer.com/search?q=track:"${text}"&limit=20&order=RANKING?strict=on`
-
-    fetch(url)
-      .then(response => response.json)
-      .then(data => setSearchResults(data.data))
   }
 
   return (
@@ -66,28 +81,40 @@ const SearchScreen = props => {
               Search Results
             </Text>
           </View>
-        </View>
-      ) : (
-        <View>
-          <View style={styles.categoryTextContainer}>
-            <Text style={styles.categoryText}>
-              Search History
-          </Text>
-          </View>
           <FlatList
             onScrollBeginDrag={Keyboard.dismiss}
-            data={searchHistory}
-            renderItem={itemData => (
+            data={searchResults}
+            renderItem={songData => (
               <SearchItem
-                id={itemData.item.key}
-                title={itemData.item.value}
+                id={songData.item.id}
+                title={`${songData.item.name} ${songData.item.artists[0].name}`}
                 onDelete={removeFromHistoryHandler}
-                onSelect={() => props.navigation.navigate('Lyrics', { songName: 'Paradise', artistName: 'Coldplay' })}
+                onSelect={() => props.navigation.navigate('Lyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name })}
               />
             )}
           />
         </View>
-      )}
+      ) : (
+          <View>
+            <View style={styles.categoryTextContainer}>
+              <Text style={styles.categoryText}>
+                Search History
+              </Text>
+            </View>
+            <FlatList
+              onScrollBeginDrag={Keyboard.dismiss}
+              data={searchHistory}
+              renderItem={itemData => (
+                <SearchItem
+                  id={itemData.item.key}
+                  title={itemData.item.value}
+                  onDelete={removeFromHistoryHandler}
+                  onSelect={() => props.navigation.navigate('Lyrics', { songName: 'Paradise', artistName: 'Coldplay' })}
+                />
+              )}
+            />
+          </View>
+        )}
     </View>
   )
 }

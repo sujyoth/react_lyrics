@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput } from 'react-native'
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard } from 'react-native'
 import SearchItem from '../components/SearchItem'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { throttle, debounce } from 'throttle-debounce'
 
 const SearchScreen = props => {
 
-  const [searchedSong, setSearchedText] = useState('')
+  const [searchedText, setSearchedText] = useState('')
   const [searchHistory, setSearchHistory] = useState([])
+  const [searchResults, setSearchResults] = useState([])
 
   const searchInputHandler = (searchedSong) => {
     setSearchedText(searchedSong) // For controlled component
@@ -15,15 +16,15 @@ const SearchScreen = props => {
 
   const addToHistoryHandler = () => {
     console.log('Searching..')
-    if (searchedSong == '')
+    if (searchedText.length == 0)
       return
     // Adding searched text to Search History array
-    setSearchHistory(searchHistory => [...searchHistory, { key: Math.random().toString(), value: searchedSong }])
+    setSearchHistory(searchHistory => [...searchHistory, { key: Math.random().toString(), value: searchedText }])
 
     // Resetting input text after search
     setSearchedText('')
 
-    console.log(`Added ${searchedSong} to History`)
+    console.log(`Added ${searchedText} to History`)
   }
 
   const removeFromHistoryHandler = (searchedSongId) => {
@@ -35,14 +36,22 @@ const SearchScreen = props => {
     })
   }
 
+  const getSearchResults = () => {
+    const url = `https://api.deezer.com/search?q=track:"${text}"&limit=20&order=RANKING?strict=on`
+
+    fetch(url)
+      .then(response => response.json)
+      .then(data => setSearchResults(data.data))
+  }
+
   return (
     <View style={styles.screen} >
       <View style={styles.inputContainer}>
         <TextInput
-          placeholder="Search for song or artist"
+          placeholder="Search song or artist"
           style={styles.inputText}
           onChangeText={setSearchedText}
-          value={searchedSong}
+          value={searchedText}
         />
         <TouchableOpacity activeOpacity={0.7} onPress={addToHistoryHandler}>
           <View>
@@ -50,20 +59,35 @@ const SearchScreen = props => {
           </View>
         </TouchableOpacity>
       </View>
-      <View style={styles.categoryTextContainer}>
-        <Text style={styles.categoryText}>Search History</Text>
-      </View>
-      <FlatList
-        data={searchHistory}
-        renderItem={itemData => (
-          <SearchItem
-            id={itemData.item.key}
-            title={itemData.item.value}
-            onDelete={removeFromHistoryHandler}
-            onSelect={() => props.navigation.navigate('Lyrics', { songName: 'Paradise', artistName: 'Coldplay' })}
+      {searchResults.length > 0 && searchedText.length > 0 ? (
+        <View>
+          <View style={styles.categoryTextContainer}>
+            <Text style={styles.categoryText}>
+              Search Results
+            </Text>
+          </View>
+        </View>
+      ) : (
+        <View>
+          <View style={styles.categoryTextContainer}>
+            <Text style={styles.categoryText}>
+              Search History
+          </Text>
+          </View>
+          <FlatList
+            onScrollBeginDrag={Keyboard.dismiss}
+            data={searchHistory}
+            renderItem={itemData => (
+              <SearchItem
+                id={itemData.item.key}
+                title={itemData.item.value}
+                onDelete={removeFromHistoryHandler}
+                onSelect={() => props.navigation.navigate('Lyrics', { songName: 'Paradise', artistName: 'Coldplay' })}
+              />
+            )}
           />
-        )}
-      />
+        </View>
+      )}
     </View>
   )
 }
@@ -73,7 +97,7 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     height: '100%',
     backgroundColor: '#192231'
-  }, 
+  },
   inputContainer: {
     paddingHorizontal: 10,
     flexDirection: 'row',

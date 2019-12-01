@@ -3,7 +3,6 @@ import { View, Text, StyleSheet } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 
 const LyricsScreen = props => {
-    console.log(props.navigation.getParam('songName'))
     const [songDetails, setSongDetails] = useState({
         songName: props.navigation.getParam('songName'),
         artistName: props.navigation.getParam('artistName')
@@ -11,6 +10,12 @@ const LyricsScreen = props => {
     const [lyrics, setLyrics] = useState('')
 
     const getLyrics = async (songName, artistName) => {
+        /*
+        Response either arrives successfully as
+        {"lyrics": "lyrics text"}
+        or unsuccessfully as
+        {"error": "error text"}
+        */
         const res = await fetch(`https://api.lyrics.ovh/v1/${artistName}/${songName}`)
         const response = await res.json()
         setLyrics(response)

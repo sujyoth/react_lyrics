@@ -60,7 +60,7 @@ const SearchScreen = props => {
             id={itemData.item.key}
             title={itemData.item.value}
             onDelete={removeFromHistoryHandler}
-            onSelect={() => props.navigation.navigate('Lyrics', { songName: 'Hallelujah' })}
+            onSelect={() => props.navigation.navigate('Lyrics', { songName: 'Paradise', artistName: 'Coldplay' })}
           />
         )}
       />
@@ -73,7 +73,8 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     height: '100%',
     backgroundColor: '#192231'
-  }, inputContainer: {
+  }, 
+  inputContainer: {
     paddingHorizontal: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',

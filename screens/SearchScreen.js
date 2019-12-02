@@ -3,24 +3,52 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard
 import SearchItem from '../components/SearchItem'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { throttle, debounce } from 'throttle-debounce'
+import * as Base64 from 'base-64'
+import * as Keys from '../assets/keys.json'
 
 const SearchScreen = props => {
 
   const [searchedText, setSearchedText] = useState('')
   const [searchHistory, setSearchHistory] = useState([])
   const [searchResults, setSearchResults] = useState([])
+  const [accessToken, setAccessToken] = useState('')
 
   const searchInputHandler = (searchedSong) => {
     setSearchedText(searchedSong) // For controlled component
   }
 
+  const getAccessToken =  () => {
+    console.log('Hey')
+    const url = 'https://accounts.spotify.com/api/token'
+
+    fetch(url, {
+      method: 'POST',
+      body: 'grant_type=client_credentials',
+      headers: {
+        'Authorization': 'Basic ' + Base64.encode(`${Keys['client-id']}` + ":" + `${Keys['client-secret']}`),
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      setAccessToken(data['access_token'])
+      console.log(data)
+      console.log(`Access Token: ${accessToken}`)
+    })
+    .catch(error => {})
+  }
+
   const getSearchResults = async () => {
-    const url = `https://api.spotify.com/v1/search?q=${searchedText}&type=track&limit=10&access_token=BQApYLDvPey7P1SZeaL-D51p7A4zCHNuBG7vxSBp7fut2mEhskaUhv_-O7K9dfWblDVdekOvTWx0i74ofgxQmH7cbiYZVdcsTnJRtB7oOrryzhRjKu_oulsPey-kuaSJI8daVUlB1rk1Xlf0ubjVLaS6g92ldRM`
+    if (accessToken.length == 0) {
+      getAccessToken()
+    }
+    const url = `https://api.spotify.com/v1/search?q=${searchedText}&type=track&limit=10&access_token=${accessToken}`
     await fetch(url)
       .then(response => response.json())
       .then(data => {
         setSearchResults(data['tracks']['items'])
       })
+      .catch(error => {})
   }
 
   const throttleSearch = throttle(400, getSearchResults)

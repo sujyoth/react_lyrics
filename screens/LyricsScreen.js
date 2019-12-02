@@ -22,6 +22,7 @@ const LyricsScreen = props => {
     }
 
     getLyrics(songDetails.songName, songDetails.artistName)
+    
     return (
         <View style={styles.screen}>
             <Text style={styles.songNameText}>

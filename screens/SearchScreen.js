@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard } from 'react-native'
 import SearchItem from '../components/SearchItem'
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { throttle, debounce } from 'throttle-debounce'
 import * as Base64 from 'base-64'
 import * as Keys from '../assets/keys.json'
@@ -91,6 +91,11 @@ const SearchScreen = props => {
   return (
     <View style={styles.screen} >
       <View style={styles.inputContainer}>
+        <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.goBack()}>
+          <View>
+            <Icon name="md-arrow-back" style={styles.Button} />
+          </View>
+        </TouchableOpacity>
         <TextInput
           placeholder="Search song or artist"
           style={styles.inputText}
@@ -99,7 +104,7 @@ const SearchScreen = props => {
         />
         <TouchableOpacity activeOpacity={0.7}>
           <View>
-            <Icon name="search" style={styles.searchButton} />
+            <Icon name="md-search" style={styles.Button} />
           </View>
         </TouchableOpacity>
       </View>
@@ -107,7 +112,7 @@ const SearchScreen = props => {
         <View style={styles.categoryTextContainer}>
           <Text style={styles.categoryText}>
             Search Results
-            </Text>
+          </Text>
         </View>
         <FlatList
           onScrollBeginDrag={Keyboard.dismiss}
@@ -132,28 +137,30 @@ const styles = StyleSheet.create({
     backgroundColor: '#192231'
   },
   inputContainer: {
+    paddingTop: 40,
+    paddingBottom: 10,
     paddingHorizontal: 10,
+    backgroundColor: '#f4511e',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   inputText: {
     flex: 1,
-    fontSize: 16,
-    color: '#cfd9e5',
-    borderBottomColor: '#5893df',
-    borderBottomWidth: 1,
+    fontSize: 18,
+    color: '#fff',
+    borderBottomColor: '#fff',
+    borderBottomWidth: 0.5,
     padding: 5,
-    marginRight: 10
+    marginHorizontal: 5
   },
-  searchButton: {
+  Button: {
     padding: 5,
-    fontSize: 20,
-    color: '#5893df'
+    fontSize: 25,
+    color: '#fff'
   },
   categoryTextContainer: {
     padding: 10,
-    marginTop: 10,
     backgroundColor: '#24344d',
   },
   categoryText: {
@@ -163,11 +170,7 @@ const styles = StyleSheet.create({
 })
 
 SearchScreen.navigationOptions = {
-  title: 'Search',
-  headerTitleStyle: {
-    textAlign: 'left',
-    fontSize: 24,
-  }
+  headerShown: false
 };
 
 export default SearchScreen

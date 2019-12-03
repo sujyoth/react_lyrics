@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 import SearchScreen from './SearchScreen';
 
 const HomeScreen = props => {
@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     },
     searchButton: {
         padding: 5,
-        fontSize: 20,
-        color: '#cfd9e5'
+        fontSize: 25,
+        color: '#fff'
     },
     buttonContainer: {
         paddingHorizontal: 10
@@ -58,7 +58,7 @@ HomeScreen.navigationOptions = ({ navigation }) => ({
         >
           <View>
             <Icon 
-                name="search" 
+                name="md-search" 
                 style={styles.searchButton} 
             />
           </View>

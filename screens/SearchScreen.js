@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard } from 'react-native'
 import SearchItem from '../components/SearchItem'
-import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { throttle, debounce } from 'throttle-debounce'
 import * as Base64 from 'base-64'
 import * as Keys from '../assets/keys.json'
@@ -13,13 +13,7 @@ const SearchScreen = props => {
   const [searchResults, setSearchResults] = useState([])
   const [accessToken, setAccessToken] = useState('')
 
-
-  const searchInputHandler = (searchedSong) => {
-    setSearchedText(searchedSong) // For controlled component
-  }
-
   const getAccessToken = () => {
-    console.log('Hey')
     const url = 'https://accounts.spotify.com/api/token'
 
     fetch(url, {
@@ -54,6 +48,8 @@ const SearchScreen = props => {
 
   const throttleSearch = throttle(400, getSearchResults)
   const debounceSearch = debounce(700, getSearchResults)
+
+  console.log('Hey')
 
   useEffect(() => {
     if (searchedText.length > 0) {
@@ -93,7 +89,7 @@ const SearchScreen = props => {
       <View style={styles.inputContainer}>
         <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.goBack()}>
           <View>
-            <Icon name="md-arrow-back" style={styles.Button} />
+            <Icon name="arrow-back" style={styles.Button} />
           </View>
         </TouchableOpacity>
         <TextInput
@@ -102,9 +98,9 @@ const SearchScreen = props => {
           onChangeText={setSearchedText}
           value={searchedText}
         />
-        <TouchableOpacity activeOpacity={0.7}>
+        <TouchableOpacity activeOpacity={0.7} onPress={() => setSearchedText('')}>
           <View>
-            <Icon name="md-search" style={styles.Button} />
+            <Icon name="clear" style={styles.Button} />
           </View>
         </TouchableOpacity>
       </View>
@@ -148,11 +144,12 @@ const styles = StyleSheet.create({
   inputText: {
     flex: 1,
     fontSize: 18,
+    fontWeight: 'bold',
     color: '#fff',
     borderBottomColor: '#fff',
     borderBottomWidth: 0.5,
     padding: 5,
-    marginHorizontal: 5
+    marginHorizontal: 10
   },
   Button: {
     padding: 5,

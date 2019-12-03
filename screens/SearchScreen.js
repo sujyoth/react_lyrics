@@ -17,7 +17,7 @@ const SearchScreen = props => {
     setSearchedText(searchedSong) // For controlled component
   }
 
-  const getAccessToken =  () => {
+  const getAccessToken = () => {
     console.log('Hey')
     const url = 'https://accounts.spotify.com/api/token'
 
@@ -29,13 +29,13 @@ const SearchScreen = props => {
         'Content-Type': 'application/x-www-form-urlencoded'
       }
     })
-    .then(response => response.json())
-    .then(data => {
-      setAccessToken(data['access_token'])
-      console.log(data)
-      console.log(`Access Token: ${accessToken}`)
-    })
-    .catch(error => {})
+      .then(response => response.json())
+      .then(data => {
+        setAccessToken(data['access_token'])
+        console.log(data)
+        console.log(`Access Token: ${accessToken}`)
+      })
+      .catch(error => { })
   }
 
   const getSearchResults = async () => {
@@ -48,7 +48,7 @@ const SearchScreen = props => {
       .then(data => {
         setSearchResults(data['tracks']['items'])
       })
-      .catch(error => {})
+      .catch(error => { })
   }
 
   const throttleSearch = throttle(400, getSearchResults)
@@ -96,53 +96,31 @@ const SearchScreen = props => {
           onChangeText={setSearchedText}
           value={searchedText}
         />
-        <TouchableOpacity activeOpacity={0.7} onPress={addToHistoryHandler}>
+        <TouchableOpacity activeOpacity={0.7}>
           <View>
             <Icon name="search" style={styles.searchButton} />
           </View>
         </TouchableOpacity>
       </View>
-      {searchResults.length > 0 && searchedText.length > 0 ? (
-        <View>
-          <View style={styles.categoryTextContainer}>
-            <Text style={styles.categoryText}>
-              Search Results
+      <View>
+        <View style={styles.categoryTextContainer}>
+          <Text style={styles.categoryText}>
+            Search Results
             </Text>
-          </View>
-          <FlatList
-            onScrollBeginDrag={Keyboard.dismiss}
-            data={searchResults}
-            renderItem={songData => (
-              <SearchItem
-                id={songData.item.id}
-                title={`${songData.item.name} ${songData.item.artists[0].name}`}
-                onDelete={removeFromHistoryHandler}
-                onSelect={() => props.navigation.navigate('Lyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name })}
-              />
-            )}
-          />
         </View>
-      ) : (
-          <View>
-            <View style={styles.categoryTextContainer}>
-              <Text style={styles.categoryText}>
-                Search History
-              </Text>
-            </View>
-            <FlatList
-              onScrollBeginDrag={Keyboard.dismiss}
-              data={searchHistory}
-              renderItem={itemData => (
-                <SearchItem
-                  id={itemData.item.key}
-                  title={itemData.item.value}
-                  onDelete={removeFromHistoryHandler}
-                  onSelect={() => props.navigation.navigate('Lyrics', { songName: 'Paradise', artistName: 'Coldplay' })}
-                />
-              )}
+        <FlatList
+          onScrollBeginDrag={Keyboard.dismiss}
+          data={searchResults}
+          renderItem={songData => (
+            <SearchItem
+              id={songData.item.id}
+              songDetails={songData}
+              onDelete={removeFromHistoryHandler}
+              onSelect={() => props.navigation.navigate('Lyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name })}
             />
-          </View>
-        )}
+          )}
+        />
+      </View>
     </View>
   )
 }

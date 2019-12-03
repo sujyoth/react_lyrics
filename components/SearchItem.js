@@ -1,19 +1,24 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const SearchItem = props => {
     return (
         <TouchableOpacity onPress={() => props.onSelect()}>
             <View style={styles.listItem}>
-                <Text style={styles.listItemText}>
-                    {props.title}
-                </Text>
-                <TouchableOpacity onPress={props.onDelete.bind(this, props.id)}>
-                    <View>
-                        <Icon name="remove" style={styles.deleteButton} />
-                    </View>
-                </TouchableOpacity>
+                <Image
+                    style={styles.image}
+                    source={{ uri: props.songDetails.item.album.images[0].url }}
+                />
+                <View style={styles.listItemTextContainer}>
+                    <Text style={styles.titleText}>
+                        {props.songDetails.item.name}
+                    </Text>
+                    <Text style={styles.artistText}>
+                        {props.songDetails.item.artists[0].name}
+                    </Text>
+                </View>
+
             </View>
         </TouchableOpacity>
     )
@@ -27,10 +32,27 @@ const styles = StyleSheet.create({
         borderBottomColor: '#283854',
         borderBottomWidth: 0.5
     },
-    listItemText: {
+    listItemTextContainer: {
         flex: 1,
+        flexDirection: 'column'
+    },
+    titleText: {
         fontSize: 14,
         color: '#cfd9e5'
+    },
+    artistText: {
+        fontSize: 12,
+        color: '#cfd9e5'
+    },
+    image: {
+        width: 50,
+        height: 50,
+        borderRadius: 50 / 2,
+        alignSelf: 'center',
+        borderColor: '#fff',
+        borderWidth: 2,
+        marginRight: 17,
+        flex: 0
     },
     deleteButton: {
         fontSize: 20,

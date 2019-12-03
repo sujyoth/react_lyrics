@@ -111,9 +111,9 @@ const SearchScreen = props => {
         <FlatList
           onScrollBeginDrag={Keyboard.dismiss}
           data={searchResults}
+          keyExtractor={(item, index) => item.id}
           renderItem={songData => (
             <SearchItem
-              id={songData.item.id}
               songDetails={songData}
               onDelete={removeFromHistoryHandler}
               onSelect={() => props.navigation.navigate('Lyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name })}

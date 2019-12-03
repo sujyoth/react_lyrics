@@ -22,7 +22,7 @@ const LyricsScreen = props => {
     }
 
     getLyrics(songDetails.songName, songDetails.artistName)
-    
+
     return (
         <View style={styles.screen}>
             <Text style={styles.songNameText}>
@@ -65,5 +65,13 @@ const styles = StyleSheet.create({
         color: '#cfd9e5'
     }
 })
+
+LyricsScreen.navigationOptions = {
+    title: 'Lyrics',
+    headerTitleStyle: {
+        textAlign: 'left',
+        fontSize: 24,
+    }
+};
 
 export default LyricsScreen

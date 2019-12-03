@@ -13,6 +13,7 @@ const SearchScreen = props => {
   const [searchResults, setSearchResults] = useState([])
   const [accessToken, setAccessToken] = useState('')
 
+
   const searchInputHandler = (searchedSong) => {
     setSearchedText(searchedSong) // For controlled component
   }
@@ -161,5 +162,13 @@ const styles = StyleSheet.create({
     color: '#cfd9e5'
   }
 })
+
+SearchScreen.navigationOptions = {
+  title: 'Search',
+  headerTitleStyle: {
+    textAlign: 'left',
+    fontSize: 24,
+  }
+};
 
 export default SearchScreen

@@ -8,10 +8,15 @@ const MainNavigator = createStackNavigator({
   Lyrics: { screen: LyricsScreen }
 },
 {
-  headerMode: 'none',
-  navigationOptions: {
-    headerShown: false,
-  }
+  defaultNavigationOptions: {
+    headerStyle: {
+      backgroundColor: '#f4511e',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  },
 })
 
 export default App = createAppContainer(MainNavigator)

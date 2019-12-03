@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     image: {
         width: 50,
         height: 50,
-        borderRadius: 50 / 2,
         alignSelf: 'center',
         marginRight: 17,
         flex: 0

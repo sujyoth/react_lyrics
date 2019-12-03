@@ -72,6 +72,8 @@ const SearchScreen = props => {
           style={styles.inputText}
           onChangeText={setSearchedText}
           value={searchedText}
+          autoFocus={true}
+          blurOnSubmit={true}
         />
         <TouchableOpacity activeOpacity={0.7} onPress={() => setSearchedText('')}>
           <View>

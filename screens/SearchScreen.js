@@ -9,7 +9,6 @@ import * as Keys from '../assets/keys.json'
 const SearchScreen = props => {
 
   const [searchedText, setSearchedText] = useState('')
-  const [searchHistory, setSearchHistory] = useState([])
   const [searchResults, setSearchResults] = useState([])
   const [accessToken, setAccessToken] = useState('')
 
@@ -60,30 +59,6 @@ const SearchScreen = props => {
     }
   }, [searchedText])
 
-  const addToHistoryHandler = () => {
-    if (searchedText.length == 0)
-      return
-
-    // Adding searched text to Search History array
-    setSearchHistory(searchHistory => [...searchHistory, { key: Math.random().toString(), value: searchedText }])
-
-    // Resetting input text after search
-    setSearchedText('')
-
-    console.log(`Added ${searchedText} to History`)
-  }
-
-  const removeFromHistoryHandler = (searchedSongId) => {
-    /*
-    Using a filter on search history
-    We check the key of the element in search history against the ids of the elements in list
-    The filter will retain only items which return true for the given condition
-    */
-    setSearchHistory(searchHistory => {
-      return searchHistory.filter((song) => song.key !== searchedSongId)
-    })
-  }
-
   return (
     <View style={styles.screen} >
       <View style={styles.inputContainer}>
@@ -117,7 +92,6 @@ const SearchScreen = props => {
           renderItem={songData => (
             <SearchItem
               songDetails={songData}
-              onDelete={removeFromHistoryHandler}
               onSelect={() => props.navigation.navigate('Lyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name })}
             />
           )}

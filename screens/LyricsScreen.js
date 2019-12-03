@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     songNameText: {
         paddingHorizontal: 10,
         fontSize: 30,
+        fontWeight: 'bold',
         color: '#cfd9e5',
         paddingHorizontal: 10
     },

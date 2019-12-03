@@ -50,11 +50,6 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         marginRight: 17,
         flex: 0
-    },
-    deleteButton: {
-        fontSize: 20,
-        margin: 5,
-        color: '#cfd9e5'
     }
 })
 

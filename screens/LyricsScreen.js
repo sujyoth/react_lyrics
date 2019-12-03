@@ -32,7 +32,7 @@ const LyricsScreen = props => {
             </Text>
             <ScrollView style={styles.scroll}>
                 <Text style={styles.lyricsText}>
-                    {lyrics['lyrics']}
+                    {lyrics['lyrics'] !== undefined ? lyrics['lyrics'] : lyrics['error']}
                 </Text>
             </ScrollView>
         </View>

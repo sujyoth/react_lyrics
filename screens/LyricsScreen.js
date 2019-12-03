@@ -42,7 +42,6 @@ const LyricsScreen = props => {
 
 const styles = StyleSheet.create({
     screen: {
-        paddingTop: 40,
         height: '100%',
         backgroundColor: '#192231'
     },

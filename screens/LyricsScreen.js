@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { ScrollView } from 'react-native-gesture-handler'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 
 const LyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({

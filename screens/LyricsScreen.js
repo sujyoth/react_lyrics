@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Text, View, StyleSheet, Platform, Animated, ScrollView } from 'react-native'
+import { Text, View, StyleSheet, Platform, Animated, ScrollView, ImageBackground } from 'react-native'
 
-const HEADER_MIN_HEIGHT = 50;
+const HEADER_MIN_HEIGHT = 90;
 const HEADER_MAX_HEIGHT = 200;
 
 
@@ -39,6 +39,15 @@ const LyricsScreen = props => {
 
     return (
         <View style={styles.screen}>
+            <Animated.View style={[styles.animatedHeaderContainer, { height: headerHeight }]}>
+                <ImageBackground
+                    style={styles.image}
+                    source={{ uri: props.navigation.getParam('imageURL') }}
+                >
+                    <Text style={styles.headerText}>{props.navigation.getParam('artistName')}</Text>
+                    <Text style={styles.itemText}>{props.navigation.getParam('songName')}</Text>
+                </ImageBackground>
+            </Animated.View>
             <ScrollView
                 contentContainerStyle={{ paddingTop: HEADER_MAX_HEIGHT }}
                 scrollEventThrottle={16}
@@ -49,10 +58,6 @@ const LyricsScreen = props => {
                     {lyrics['lyrics'] !== undefined ? lyrics['lyrics'] : lyrics['error']}
                 </Text>
             </ScrollView>
-            <Animated.View style={[styles.animatedHeaderContainer, { height: headerHeight}]}>
-                <Text style={styles.headerText}>{props.navigation.getParam('artistName')}</Text>
-                <Text>{props.navigation.getParam('songName')}</Text>
-            </Animated.View>
         </View>
     )
 }
@@ -78,8 +83,16 @@ const styles = StyleSheet.create({
         color: '#cfd9e5'
     },
     lyricsText: {
-        fontSize: 14,
+        paddingVertical: 20,
+        paddingHorizontal: 10,
+        fontSize: 15,
         color: '#cfd9e5'
+    },
+    image: {
+        height: '100%',
+        width: '100%',
+        justifyContent: 'center',
+        alignSelf: 'center',
     },
     container: {
         flex: 1,
@@ -91,21 +104,18 @@ const styles = StyleSheet.create({
         height: 20,
         width: 20,
         alignContent: 'flex-end'
-
     },
     animatedHeaderContainer: {
-        backgroundColor: '#f4511e',
         elevation: 10,
         position: 'absolute',
         top: (Platform.OS == 'ios') ? 20 : 0,
         left: 0,
         right: 0,
         justifyContent: 'center',
-
-        padding: 50
     },
     headerText: {
         paddingTop: 25,
+        paddingHorizontal: 20,
         color: '#fff',
         fontSize: 22
     },
@@ -118,6 +128,7 @@ const styles = StyleSheet.create({
     },
     itemText: {
         color: '#fff',
+        paddingHorizontal: 20,
         fontSize: 16
     }
 })

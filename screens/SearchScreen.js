@@ -92,7 +92,7 @@ const SearchScreen = props => {
           renderItem={songData => (
             <SearchItem
               songDetails={songData}
-              onSelect={() => props.navigation.navigate('Lyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name })}
+              onSelect={() => props.navigation.navigate('Lyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name, imageURL: songData.item.album.images[0].url })}
             />
           )}
         />

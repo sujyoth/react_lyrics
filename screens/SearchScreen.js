@@ -48,8 +48,6 @@ const SearchScreen = props => {
   const throttleSearch = throttle(400, getSearchResults)
   const debounceSearch = debounce(700, getSearchResults)
 
-  console.log('Hey')
-
   useEffect(() => {
     if (searchedText.length > 0) {
       if (searchedText.length < 5 || searchedText.endsWith(' '))

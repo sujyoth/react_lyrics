@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { Text, View, StyleSheet, Platform, Animated, ScrollView, ImageBackground } from 'react-native'
 
 const HEADER_MIN_HEIGHT = 90;
-const HEADER_MAX_HEIGHT = 200;
-
+const HEADER_MAX_HEIGHT = 300;
 
 const LyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({
@@ -44,8 +43,8 @@ const LyricsScreen = props => {
                     style={styles.image}
                     source={{ uri: props.navigation.getParam('imageURL') }}
                 >
-                    <Text style={styles.headerText}>{props.navigation.getParam('artistName')}</Text>
-                    <Text style={styles.itemText}>{props.navigation.getParam('songName')}</Text>
+                    <Text style={styles.songNameText}>{props.navigation.getParam('songName')}</Text>
+                    <Text style={styles.artistNameText}>{props.navigation.getParam('artistName')}</Text>
                 </ImageBackground>
             </Animated.View>
             <ScrollView
@@ -67,24 +66,20 @@ const styles = StyleSheet.create({
         height: '100%',
         backgroundColor: '#192231'
     },
-    scroll: {
-        paddingHorizontal: 10
-    },
     songNameText: {
+        paddingTop: 25,
         paddingHorizontal: 10,
-        fontSize: 30,
+        fontSize: 22,
         fontWeight: 'bold',
-        color: '#cfd9e5',
-        paddingHorizontal: 10
+        color: '#fff',
     },
     artistNameText: {
         paddingHorizontal: 10,
-        fontSize: 20,
-        color: '#cfd9e5'
+        fontSize: 16,
+        color: '#fff'
     },
     lyricsText: {
-        paddingVertical: 20,
-        paddingHorizontal: 10,
+        padding: 10,
         fontSize: 15,
         color: '#cfd9e5'
     },
@@ -93,12 +88,6 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignSelf: 'center',
-    },
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        padding: 15
-
     },
     imageContainer: {
         height: 20,
@@ -112,24 +101,6 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         justifyContent: 'center',
-    },
-    headerText: {
-        paddingTop: 25,
-        paddingHorizontal: 20,
-        color: '#fff',
-        fontSize: 22
-    },
-    item: {
-        backgroundColor: '#ff9e80',
-        margin: 8,
-        height: 45,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    itemText: {
-        color: '#fff',
-        paddingHorizontal: 20,
-        fontSize: 16
     }
 })
 

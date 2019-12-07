@@ -1,18 +1,14 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-
 const NewReleases = props => {
-    console.log("Heylo")
+    console.log("Hello")
     return (
         <TouchableOpacity onPress={() => props.onSelect()}>
             <View style={styles.listItem}>
-              
-
                 <View style={styles.listItemTextContainer}>
                     <Text style={styles.titleText}>
                         {props.albumDetails.item.name}
-                        
                     </Text>
                     <Text style={styles.artistText}>
                         {props.albumDetails.item.artists[0].name}

@@ -33,7 +33,7 @@ const HomeScreen = props => {
         if (accessToken.length == 0) {
             getAccessToken(setAccessToken)
         }
-        const url = `https://api.spotify.com/v1/browse/new-releases?country=US&offset=0&limit=2&access_token=${accessToken}`
+        const url = `https://api.spotify.com/v1/browse/new-releases?country=US&offset=0&limit=10&access_token=${accessToken}`
         console.log(url)
         fetch(url)
             .then(response => response.json())

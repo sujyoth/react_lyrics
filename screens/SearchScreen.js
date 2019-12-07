@@ -49,12 +49,14 @@ const SearchScreen = props => {
   const debounceSearch = debounce(700, getSearchResults)
 
   useEffect(() => {
-    /* if (searchedText.length > 0) {
+    /* 
+    if (searchedText.length > 0) {
       if (searchedText.length < 5 || searchedText.endsWith(' '))
         throttleSearch()
       else
         debounceSearch()
-    } */
+    } 
+    */
     getSearchResults(accessToken, setAccessToken, searchedText, setSearchResults)
   }, [searchedText])
 

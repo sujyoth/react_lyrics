@@ -6,35 +6,35 @@ import { throttle, debounce } from 'throttle-debounce'
 import * as Base64 from 'base-64'
 import * as Keys from '../assets/keys.json'
 
+const getAccessToken = (setAccessToken) => {
+  const url = 'https://accounts.spotify.com/api/token'
+
+  fetch(url, {
+    method: 'POST',
+    body: 'grant_type=client_credentials',
+    headers: {
+      'Authorization': 'Basic ' + Base64.encode(`${Keys['client-id']}` + ":" + `${Keys['client-secret']}`),
+      'Content-Type': 'application/x-www-form-urlencoded'
+    }
+  })
+    .then(response => response.json())
+    .then(data => {
+      setAccessToken(data['access_token'])
+      console.log(data)
+      console.log(`Access Token: ${accessToken}`)
+    })
+    .catch(error => { })
+}
+
 const SearchScreen = props => {
 
   const [searchedText, setSearchedText] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [accessToken, setAccessToken] = useState('')
 
-  const getAccessToken = () => {
-    const url = 'https://accounts.spotify.com/api/token'
-
-    fetch(url, {
-      method: 'POST',
-      body: 'grant_type=client_credentials',
-      headers: {
-        'Authorization': 'Basic ' + Base64.encode(`${Keys['client-id']}` + ":" + `${Keys['client-secret']}`),
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-      .then(response => response.json())
-      .then(data => {
-        setAccessToken(data['access_token'])
-        console.log(data)
-        console.log(`Access Token: ${accessToken}`)
-      })
-      .catch(error => { })
-  }
-
   const getSearchResults = async () => {
     if (accessToken.length == 0) {
-      getAccessToken()
+      getAccessToken(setAccessToken)
     }
     const url = `https://api.spotify.com/v1/search?q=${searchedText}&type=track&limit=10&access_token=${accessToken}`
     await fetch(url)

@@ -6,7 +6,7 @@ const HEADER_MIN_HEIGHT = 90;
 const HEADER_MAX_HEIGHT = 300;
 
 var cache = new Cache({
-    namespace: 'searchCache',
+    namespace: 'lyricsCache',
     policy: {
         maxEntries: 1000
     },
@@ -32,7 +32,6 @@ const LyricsScreen = props => {
         }
     )
 
-
     const getLyrics = async (songName, artistName) => {
         /*
         Response either arrives successfully as
@@ -44,9 +43,13 @@ const LyricsScreen = props => {
         const response = await res.json()
         setLyrics(response)
 
+        if (lyrics['lyrics'] !== undefined)
+            cache.setItem(songDetails.songId, lyrics['lyrics'], function(err) {
+                console.log("Cached")
+            })
     }
-
-    getLyrics(songDetails.songName, songDetails.artistName)
+    if (lyrics['lyrics'] == undefined)
+        getLyrics(songDetails.songName, songDetails.artistName)
 
     return (
         <View style={styles.screen}>

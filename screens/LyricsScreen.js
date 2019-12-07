@@ -13,6 +13,7 @@ var cache = new Cache({
     backend: AsyncStorage
 })
 
+
 const LyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({
         songName: props.navigation.getParam('songName'),

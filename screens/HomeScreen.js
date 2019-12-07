@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet, ScrollView, Button } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as Base64 from 'base-64'
 import * as Keys from '../assets/keys.json'
@@ -13,6 +13,7 @@ const HomeScreen = props => {
 
     const getAccessToken = async () => {
         const url = 'https://accounts.spotify.com/api/token'
+
         await fetch(url, {
             method: 'POST',
             body: 'grant_type=client_credentials',
@@ -27,45 +28,42 @@ const HomeScreen = props => {
                 console.log(data)
                 console.log(`Access Token: ${accessToken}`)
             })
-            .catch(error => {})
+            .catch(error => { })
     }
 
-    const getNewReleases = () => {
+    const getNewReleases = async () => {
         if (accessToken.length == 0) {
-            getAccessToken()
+            await getAccessToken()
         }
-        const url = `https://api.spotify.com/v1/browse/new-releases?country=US&offset=0&limit=2&access_token=${accessToken}`
-        console.log(url)
-        fetch(url)
+        const url = `https://api.spotify.com/v1/browse/new-releases?country=US&offset=0&limit=20&access_token=${accessToken}`
+        await fetch(url)
             .then(response => response.json())
             .then(data => {
                 setNewReleases(data['albums']['items'])
             })
-            .catch(error => {})
+            .catch(error => { })
     }
-
-    if (newReleases.length == 0) {
-        console.log("Hey1")
+    if (newReleases.length == 0)
         getNewReleases()
-    }
-    if (newReleases.length !== 0 && accessToken.length !== 0)
-        console.log("Good")
-
+        console.log("Hey1")
+    if (newReleases.length == 0)
+        console.log("Hey")
     return (
         <View style={styles.screen} >
-            <Text style={styles.activityHeader}>New Releases</Text>
             <View>
-                <FlatList
-                    data={newReleases}
-                    keyExtractor={(item, index) => item.id}
-                    renderItem={albumData => (
+                <Text style={styles.activityHeader}>New Releases</Text>
+                <View>
+                    <FlatList>
+                        data={newReleases}
+                        keyExtractor={(item, index) => item.id}
+                        renderItem={albumData => {(
                             <NewReleases
                                 albumDetails={albumData}
-                                onSelect={() => props.navigation.navigate('Lyrics', { albumName: albumData.item.name, artistName: albumData.item.artists[0].name })}
+                                onSelect={() => props.navigation.navigate('Lyrics', { albumName: albumData.item.name, artistName: albumData.item.artists[0].name})}
                             />
-                        )
-                    }
-                />
+                        )}}
+                    </FlatList>
+                </View>
             </View>
         </View>
     )

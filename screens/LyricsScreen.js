@@ -53,7 +53,8 @@ const LyricsScreen = props => {
                 onScroll={Animated.event(
                     [{ nativeEvent: { contentOffset: { y: scrollYAnimatedValue } } }]
                 )}>
-                <Text style={styles.lyricsText}>
+                <Text 
+                style={styles.lyricsText}>
                     {lyrics['lyrics'] !== undefined ? lyrics['lyrics'] : lyrics['error']}
                 </Text>
             </ScrollView>
@@ -80,7 +81,8 @@ const styles = StyleSheet.create({
     },
     lyricsText: {
         padding: 10,
-        fontSize: 15,
+        fontSize: 17,
+        lineHeight: 24,
         color: '#cfd9e5'
     },
     image: {

@@ -8,16 +8,17 @@ const HEADER_MAX_HEIGHT = 300;
 var cache = new Cache({
     namespace: 'searchCache',
     policy: {
-      maxEntries : 1000
+        maxEntries: 1000
     },
     backend: AsyncStorage
-  })
+})
 
 
 const LyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({
         songName: props.navigation.getParam('songName'),
-        artistName: props.navigation.getParam('artistName')
+        artistName: props.navigation.getParam('artistName'),
+        songId: props.navigation.getParam('songId')
     })
     const [lyrics, setLyrics] = useState('')
 
@@ -42,6 +43,7 @@ const LyricsScreen = props => {
         const res = await fetch(`https://api.lyrics.ovh/v1/${artistName}/${songName}`)
         const response = await res.json()
         setLyrics(response)
+
     }
 
     getLyrics(songDetails.songName, songDetails.artistName)
@@ -53,8 +55,8 @@ const LyricsScreen = props => {
                     style={styles.image}
                     source={{ uri: props.navigation.getParam('imageURL') }}
                 >
-                    <Text style={styles.songNameText}>{props.navigation.getParam('songName')}</Text>
-                    <Text style={styles.artistNameText}>{props.navigation.getParam('artistName')}</Text>
+                    <Text style={styles.songNameText}>{songDetails.songName}</Text>
+                    <Text style={styles.artistNameText}>{songDetails.artistName}</Text>
                 </ImageBackground>
             </Animated.View>
             <ScrollView
@@ -63,8 +65,8 @@ const LyricsScreen = props => {
                 onScroll={Animated.event(
                     [{ nativeEvent: { contentOffset: { y: scrollYAnimatedValue } } }]
                 )}>
-                <Text 
-                style={styles.lyricsText}>
+                <Text
+                    style={styles.lyricsText}>
                     {lyrics['lyrics'] !== undefined ? lyrics['lyrics'] : lyrics['error']}
                 </Text>
             </ScrollView>

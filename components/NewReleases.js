@@ -2,7 +2,6 @@ import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
 const NewReleases = props => {
-    console.log("Hello")
     return (
         <TouchableOpacity onPress={() => props.onSelect()}>
             <View style={styles.listItem}>

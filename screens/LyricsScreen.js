@@ -1,14 +1,24 @@
 import React, { useState } from 'react'
-import { Text, View, StyleSheet, Platform, Animated, ScrollView, ImageBackground } from 'react-native'
+import { Text, View, StyleSheet, Platform, Animated, ScrollView, ImageBackground, AsyncStorage } from 'react-native'
+import { Cache } from 'react-native-cache'
 
 const HEADER_MIN_HEIGHT = 90;
-const HEADER_MAX_HEIGHT = 200;
+const HEADER_MAX_HEIGHT = 300;
+
+var cache = new Cache({
+    namespace: 'lyricsCache',
+    policy: {
+        maxEntries: 1000
+    },
+    backend: AsyncStorage
+})
 
 
 const LyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({
         songName: props.navigation.getParam('songName'),
-        artistName: props.navigation.getParam('artistName')
+        artistName: props.navigation.getParam('artistName'),
+        songId: props.navigation.getParam('songId')
     })
     const [lyrics, setLyrics] = useState('')
 
@@ -22,7 +32,6 @@ const LyricsScreen = props => {
         }
     )
 
-
     const getLyrics = async (songName, artistName) => {
         /*
         Response either arrives successfully as
@@ -33,9 +42,14 @@ const LyricsScreen = props => {
         const res = await fetch(`https://api.lyrics.ovh/v1/${artistName}/${songName}`)
         const response = await res.json()
         setLyrics(response)
-    }
 
-    getLyrics(songDetails.songName, songDetails.artistName)
+        if (lyrics['lyrics'] !== undefined)
+            cache.setItem(songDetails.songId, lyrics['lyrics'], function(err) {
+                console.log("Cached")
+            })
+    }
+    if (lyrics['lyrics'] == undefined)
+        getLyrics(songDetails.songName, songDetails.artistName)
 
     return (
         <View style={styles.screen}>
@@ -44,8 +58,8 @@ const LyricsScreen = props => {
                     style={styles.image}
                     source={{ uri: props.navigation.getParam('imageURL') }}
                 >
-                    <Text style={styles.headerText}>{props.navigation.getParam('artistName')}</Text>
-                    <Text style={styles.itemText}>{props.navigation.getParam('songName')}</Text>
+                    <Text style={styles.songNameText}>{songDetails.songName}</Text>
+                    <Text style={styles.artistNameText}>{songDetails.artistName}</Text>
                 </ImageBackground>
             </Animated.View>
             <ScrollView
@@ -54,7 +68,8 @@ const LyricsScreen = props => {
                 onScroll={Animated.event(
                     [{ nativeEvent: { contentOffset: { y: scrollYAnimatedValue } } }]
                 )}>
-                <Text style={styles.lyricsText}>
+                <Text
+                    style={styles.lyricsText}>
                     {lyrics['lyrics'] !== undefined ? lyrics['lyrics'] : lyrics['error']}
                 </Text>
             </ScrollView>
@@ -67,25 +82,22 @@ const styles = StyleSheet.create({
         height: '100%',
         backgroundColor: '#192231'
     },
-    scroll: {
-        paddingHorizontal: 10
-    },
     songNameText: {
+        paddingTop: 25,
         paddingHorizontal: 10,
-        fontSize: 30,
+        fontSize: 22,
         fontWeight: 'bold',
-        color: '#cfd9e5',
-        paddingHorizontal: 10
+        color: '#fff',
     },
     artistNameText: {
         paddingHorizontal: 10,
-        fontSize: 20,
-        color: '#cfd9e5'
+        fontSize: 16,
+        color: '#fff'
     },
     lyricsText: {
-        paddingVertical: 20,
-        paddingHorizontal: 10,
-        fontSize: 15,
+        padding: 10,
+        fontSize: 17,
+        lineHeight: 24,
         color: '#cfd9e5'
     },
     image: {
@@ -93,12 +105,6 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignSelf: 'center',
-    },
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        padding: 15
-
     },
     imageContainer: {
         height: 20,
@@ -112,24 +118,6 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         justifyContent: 'center',
-    },
-    headerText: {
-        paddingTop: 25,
-        paddingHorizontal: 20,
-        color: '#fff',
-        fontSize: 22
-    },
-    item: {
-        backgroundColor: '#ff9e80',
-        margin: 8,
-        height: 45,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    itemText: {
-        color: '#fff',
-        paddingHorizontal: 20,
-        fontSize: 16
     }
 })
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard } from 'react-native'
 import SearchItem from '../components/SearchItem'
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/MaterialIcons'
 import { throttle, debounce } from 'throttle-debounce'
 import * as Base64 from 'base-64'
 import * as Keys from '../assets/keys.json'
@@ -92,7 +92,7 @@ const SearchScreen = props => {
           renderItem={songData => (
             <SearchItem
               songDetails={songData}
-              onSelect={() => props.navigation.navigate('Lyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name, imageURL: songData.item.album.images[0].url })}
+              onSelect={() => props.navigation.navigate('Lyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name, songId: songData.item.id, imageURL: songData.item.album.images[0].url })}
             />
           )}
         />

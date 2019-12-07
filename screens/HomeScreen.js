@@ -1,12 +1,70 @@
-import React from 'react'
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { Text, View, TouchableOpacity, StyleSheet, ScrollView, Button } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import SearchScreen from './SearchScreen';
+import * as Base64 from 'base-64'
+import * as Keys from '../assets/keys.json'
+import NewReleases from '../components/NewReleases';
+import { FlatList } from 'react-native-gesture-handler';
+
 
 const HomeScreen = props => {
+    const [newReleases, setNewReleases] = useState([])
+    const [accessToken, setAccessToken] = useState('')
+
+    const getAccessToken = async () => {
+        const url = 'https://accounts.spotify.com/api/token'
+
+        await fetch(url, {
+            method: 'POST',
+            body: 'grant_type=client_credentials',
+            headers: {
+                'Authorization': 'Basic ' + Base64.encode(`${Keys['client-id']}` + ":" + `${Keys['client-secret']}`),
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                setAccessToken(data['access_token'])
+                console.log(data)
+                console.log(`Access Token: ${accessToken}`)
+            })
+            .catch(error => { })
+    }
+
+    const getNewReleases = async () => {
+        if (accessToken.length == 0) {
+            await getAccessToken()
+        }
+        const url = `https://api.spotify.com/v1/browse/new-releases?country=US&offset=0&limit=20&access_token=${accessToken}`
+        await fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                setNewReleases(data['albums']['items'])
+            })
+            .catch(error => { })
+    }
+    if (newReleases.length == 0)
+        getNewReleases()
+        console.log("Hey1")
+    if (newReleases.length == 0)
+        console.log("Hey")
     return (
         <View style={styles.screen} >
-
+            <View>
+                <Text style={styles.activityHeader}>New Releases</Text>
+                <View>
+                    <FlatList>
+                        data={newReleases}
+                        keyExtractor={(item, index) => item.id}
+                        renderItem={albumData => {(
+                            <NewReleases
+                                albumDetails={albumData}
+                                onSelect={() => props.navigation.navigate('Lyrics', { albumName: albumData.item.name, artistName: albumData.item.artists[0].name})}
+                            />
+                        )}}
+                    </FlatList>
+                </View>
+            </View>
         </View>
     )
 }
@@ -27,6 +85,12 @@ const styles = StyleSheet.create({
     scroll: {
         paddingHorizontal: 10
     },
+    activityHeader: {
+        padding: 35,
+        fontSize: 20,
+        color: '#cfd9e5',
+
+    },
     songNameText: {
         paddingHorizontal: 10,
         fontSize: 30,
@@ -36,7 +100,8 @@ const styles = StyleSheet.create({
     artistNameText: {
         paddingHorizontal: 10,
         fontSize: 20,
-        color: '#cfd9e5'
+        color: '#cfd9e5',
+
     },
     lyricsText: {
         fontSize: 14,
@@ -51,17 +116,17 @@ HomeScreen.navigationOptions = ({ navigation }) => ({
         fontSize: 24
     },
     headerRight: () => (
-        <TouchableOpacity 
+        <TouchableOpacity
             activeOpacity={0.7}
             onPress={() => navigation.navigate('Search')}
             style={styles.buttonContainer}
         >
-          <View>
-            <Icon 
-                name="search" 
-                style={styles.searchButton} 
-            />
-          </View>
+            <View>
+                <Icon
+                    name="search"
+                    style={styles.searchButton}
+                />
+            </View>
         </TouchableOpacity>
     )
 });

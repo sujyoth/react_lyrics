@@ -44,12 +44,8 @@ const HomeScreen = props => {
             .catch(error => {})
     }
 
-    if (newReleases.length == 0) {
-        console.log("Hey1")
+    if (newReleases.length == 0)
         getNewReleases()
-    }
-    if (newReleases.length !== 0 && accessToken.length !== 0)
-        console.log("Good")
 
     return (
         <View style={styles.screen} >

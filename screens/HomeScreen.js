@@ -6,33 +6,32 @@ import * as Keys from '../assets/keys.json'
 import NewReleases from '../components/NewReleases';
 import { FlatList } from 'react-native-gesture-handler';
 
+const getAccessToken = (setAccessToken) => {
+    const url = 'https://accounts.spotify.com/api/token'
+    fetch(url, {
+        method: 'POST',
+        body: 'grant_type=client_credentials',
+        headers: {
+            'Authorization': 'Basic ' + Base64.encode(`${Keys['client-id']}` + ":" + `${Keys['client-secret']}`),
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            setAccessToken(data['access_token'])
+            console.log(data)
+            console.log(`Access Token: ${accessToken}`)
+        })
+        .catch(error => {})
+}
 
 const HomeScreen = props => {
     const [newReleases, setNewReleases] = useState([])
     const [accessToken, setAccessToken] = useState('')
 
-    const getAccessToken = async () => {
-        const url = 'https://accounts.spotify.com/api/token'
-        await fetch(url, {
-            method: 'POST',
-            body: 'grant_type=client_credentials',
-            headers: {
-                'Authorization': 'Basic ' + Base64.encode(`${Keys['client-id']}` + ":" + `${Keys['client-secret']}`),
-                'Content-Type': 'application/x-www-form-urlencoded'
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                setAccessToken(data['access_token'])
-                console.log(data)
-                console.log(`Access Token: ${accessToken}`)
-            })
-            .catch(error => {})
-    }
-
     const getNewReleases = () => {
         if (accessToken.length == 0) {
-            getAccessToken()
+            getAccessToken(setAccessToken)
         }
         const url = `https://api.spotify.com/v1/browse/new-releases?country=US&offset=0&limit=2&access_token=${accessToken}`
         console.log(url)

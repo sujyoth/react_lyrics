@@ -6,10 +6,10 @@ import { throttle, debounce } from 'throttle-debounce'
 import * as Base64 from 'base-64'
 import * as Keys from '../assets/keys.json'
 
-const getAccessToken = (setAccessToken) => {
+const getAccessToken = async (setAccessToken) => {
   const url = 'https://accounts.spotify.com/api/token'
 
-  fetch(url, {
+  await fetch(url, {
     method: 'POST',
     body: 'grant_type=client_credentials',
     headers: {
@@ -26,35 +26,36 @@ const getAccessToken = (setAccessToken) => {
     .catch(error => { })
 }
 
+const getSearchResults = async (accessToken, setAccessToken, searchedText, setSearchResults) => {
+  if (accessToken.length == 0) {
+    await getAccessToken(setAccessToken)
+  }
+  const url = `https://api.spotify.com/v1/search?q=${searchedText}&type=track&limit=10&access_token=${accessToken}`
+  await fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      setSearchResults(data['tracks']['items'])
+    })
+    .catch(error => { })
+}
+
 const SearchScreen = props => {
 
   const [searchedText, setSearchedText] = useState('')
   const [searchResults, setSearchResults] = useState([])
   const [accessToken, setAccessToken] = useState('')
 
-  const getSearchResults = async () => {
-    if (accessToken.length == 0) {
-      getAccessToken(setAccessToken)
-    }
-    const url = `https://api.spotify.com/v1/search?q=${searchedText}&type=track&limit=10&access_token=${accessToken}`
-    await fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        setSearchResults(data['tracks']['items'])
-      })
-      .catch(error => { })
-  }
-
   const throttleSearch = throttle(400, getSearchResults)
   const debounceSearch = debounce(700, getSearchResults)
 
   useEffect(() => {
-    if (searchedText.length > 0) {
+    /* if (searchedText.length > 0) {
       if (searchedText.length < 5 || searchedText.endsWith(' '))
         throttleSearch()
       else
         debounceSearch()
-    }
+    } */
+    getSearchResults(accessToken, setAccessToken, searchedText, setSearchResults)
   }, [searchedText])
 
   return (

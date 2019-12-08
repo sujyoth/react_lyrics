@@ -13,6 +13,14 @@ var cache = new Cache({
     backend: AsyncStorage
 })
 
+const scrollYAnimatedValue = new Animated.Value(0)
+
+const headerHeight = scrollYAnimatedValue.interpolate({
+        inputRange: [0, (HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT)],
+        outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
+        extrapolate: 'clamp'
+})
+
 const LyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({
         songName: props.navigation.getParam('songName'),
@@ -20,16 +28,6 @@ const LyricsScreen = props => {
         songId: props.navigation.getParam('songId')
     })
     const [lyrics, setLyrics] = useState('')
-
-    const scrollYAnimatedValue = new Animated.Value(0)
-
-    const headerHeight = scrollYAnimatedValue.interpolate(
-        {
-            inputRange: [0, (HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT)],
-            outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
-            extrapolate: 'clamp'
-        }
-    )
 
     const getLyrics = async (songName, artistName) => {
         /*
@@ -43,7 +41,7 @@ const LyricsScreen = props => {
         setLyrics(response)
 
         if (lyrics['lyrics'] !== undefined)
-            cache.setItem(songDetails.songId, lyrics['lyrics'], function(err) {
+            cache.setItem(songDetails.songId, lyrics['lyrics'], function (err) {
                 console.log("Cached")
             })
     }

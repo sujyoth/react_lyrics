@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, AsyncStorage } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import * as Base64 from 'base-64'
-import * as Keys from '../assets/keys.json'
 import { FlatList } from 'react-native-gesture-handler';
 import Tracks from '../components/Tracks'
 import { Cache } from 'react-native-cache'
@@ -62,7 +60,6 @@ const AlbumScreen = props => {
                     }
                 />
             </View>
-
         </View>
     )
 }

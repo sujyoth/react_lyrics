@@ -28,8 +28,6 @@ const styles = StyleSheet.create({
         padding: 10,
         flexDirection: 'row',
         alignItems: 'center',
-        borderBottomColor: '#283854',
-        borderBottomWidth: 0.5
     },
     listItemTextContainer: {
         flex: 1,
@@ -37,6 +35,7 @@ const styles = StyleSheet.create({
     },
     titleText: {
         fontSize: 14,
+        fontWeight: 'bold',
         color: '#cfd9e5'
     },
     artistText: {
@@ -44,10 +43,9 @@ const styles = StyleSheet.create({
         color: '#cfd9e5'
     },
     image: {
-        width: 50,
-        height: 50,
+        width: 180,
+        height: 180,
         alignSelf: 'center',
-        marginRight: 17,
         flex: 0
     }
 })

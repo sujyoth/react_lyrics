@@ -29,12 +29,12 @@ const getAccessToken = (setAccessToken) => {
         .then(response => response.json())
         .then(data => {
             setAccessToken(data['access_token'])
-            cache.setItem('accessToken', data['access_token'], function(err) {
+            cache.setItem('accessToken', data['access_token'], function (err) {
                 console.log("Cached")
             })
             console.log(data)
         })
-        .catch(error => {})
+        .catch(error => { })
 }
 
 const HomeScreen = props => {
@@ -52,7 +52,7 @@ const HomeScreen = props => {
             .then(data => {
                 setNewReleases(data['albums']['items'])
             })
-            .catch(error => {})
+            .catch(error => { })
     }
 
     if (newReleases.length == 0)
@@ -62,16 +62,17 @@ const HomeScreen = props => {
         <View style={styles.screen} >
             <Text style={styles.activityHeader}>New Releases</Text>
             <View>
-                <FlatList horizontal={true}
+                <FlatList
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
                     data={newReleases}
                     keyExtractor={(item, index) => item.id}
                     renderItem={albumData => (
-                            <NewReleases
-                                albumDetails={albumData}
-                                onSelect={() => props.navigation.navigate('Album', { imageURL: albumData.item.images[0].url, albumName: albumData.item.name, albumId: albumData.item.id,   artistName: albumData.item.artists[0].name })}
-                            />
-                        )
-                    }
+                        <NewReleases
+                            albumDetails={albumData}
+                            onSelect={() => props.navigation.navigate('Album', { imageURL: albumData.item.images[0].url, albumName: albumData.item.name, albumId: albumData.item.id, artistName: albumData.item.artists[0].name })}
+                        />
+                    )}
                 />
             </View>
         </View>
@@ -95,10 +96,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10
     },
     activityHeader: {
-        padding: 35,
+        padding: 10,
         fontSize: 20,
+        fontWeight: 'bold',
         color: '#cfd9e5',
-
     },
     songNameText: {
         paddingHorizontal: 10,

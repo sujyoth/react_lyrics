@@ -3,8 +3,6 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard
 import SearchItem from '../components/SearchItem'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { throttle, debounce } from 'throttle-debounce'
-import * as Base64 from 'base-64'
-import * as Keys from '../assets/keys.json'
 import { Cache } from 'react-native-cache'
 
 var cache = new Cache({

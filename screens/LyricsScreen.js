@@ -13,7 +13,6 @@ var cache = new Cache({
     backend: AsyncStorage
 })
 
-
 const LyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({
         songName: props.navigation.getParam('songName'),
@@ -83,7 +82,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#192231'
     },
     songNameText: {
-        paddingTop: 25,
+        paddingTop: 28,
         paddingHorizontal: 10,
         fontSize: 22,
         fontWeight: 'bold',

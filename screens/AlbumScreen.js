@@ -1,20 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet, AsyncStorage } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as Base64 from 'base-64'
 import * as Keys from '../assets/keys.json'
-import NewReleases from '../components/NewReleases';
+
 import { FlatList } from 'react-native-gesture-handler';
-import { Cache } from 'react-native-cache'
-
-var cache = new Cache({
-    namespace: 'accessTokenCache',
-    policy: {
-        maxEntries: 1
-    },
-    backend: AsyncStorage
-})
-
+import Tracks from '../components/Tracks'
 
 const getAccessToken = (setAccessToken) => {
     const url = 'https://accounts.spotify.com/api/token'
@@ -29,51 +20,58 @@ const getAccessToken = (setAccessToken) => {
         .then(response => response.json())
         .then(data => {
             setAccessToken(data['access_token'])
-            cache.setItem('accessToken', data['access_token'], function(err) {
-                console.log("Cached")
-            })
             console.log(data)
+            console.log(`Access Token: ${accessToken}`)
         })
-        .catch(error => {})
+        .catch(error => { })
 }
 
-const HomeScreen = props => {
-    const [newReleases, setNewReleases] = useState([])
+const AlbumScreen = props => {
+    const [tracks, setTracks] = useState([])
     const [accessToken, setAccessToken] = useState('')
+    const [trackDetails, setTrackDetails] = useState({
+        albumName: props.navigation.getParam('albumName'),
+        artistName: props.navigation.getParam('artistName'),
+        albumId: props.navigation.getParam('albumId'),
+      
+    })
 
-    const getNewReleases = () => {
+    const getTracks = (albumId) => {
+        console.log("trackToken")
         if (accessToken.length == 0) {
             getAccessToken(setAccessToken)
         }
-        const url = `https://api.spotify.com/v1/browse/new-releases?country=IN&offset=0&limit=10&access_token=${accessToken}`
+        const url = `https://api.spotify.com/v1/albums/${albumId}/tracks?offset=0&access_token=${accessToken}`
         console.log(url)
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                setNewReleases(data['albums']['items'])
+                setTracks(data['items'])
+                console.log(data['items'])
             })
-            .catch(error => {})
+            .catch(error => { })
     }
 
-    if (newReleases.length == 0)
-        getNewReleases()
+        getTracks(trackDetails.albumId)
+  
 
     return (
         <View style={styles.screen} >
-            <Text style={styles.activityHeader}>New Releases</Text>
+            <Text style={styles.activityHeader}>Tracks</Text>
             <View>
-                <FlatList horizontal={true}
-                    data={newReleases}
+                <FlatList
+                    data={tracks}
                     keyExtractor={(item, index) => item.id}
-                    renderItem={albumData => (
-                            <NewReleases
-                                albumDetails={albumData}
-                                onSelect={() => props.navigation.navigate('Album', { imageURL: albumData.item.images[0].url, albumName: albumData.item.name, albumId: albumData.item.id,   artistName: albumData.item.artists[0].name })}
-                            />
-                        )
+                    renderItem={trackData => (
+                        <Tracks
+                            trackDetails={trackData}
+                            onSelect={() => props.navigation.navigate('Lyrics', {imageURL: props.navigation.getParam('imageURL'), songName: trackData.item.name, artistName: trackData.item.artists[0].name, songId: trackData.item.id,  })}
+                        />
+                    )
                     }
                 />
             </View>
+
         </View>
     )
 }
@@ -95,7 +93,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10
     },
     activityHeader: {
-        padding: 35,
+        padding: 15,
         fontSize: 20,
         color: '#cfd9e5',
 
@@ -118,7 +116,7 @@ const styles = StyleSheet.create({
     }
 })
 
-HomeScreen.navigationOptions = ({ navigation }) => ({
+AlbumScreen.navigationOptions = ({ navigation }) => ({
     title: 'Home',
     headerTitleStyle: {
         textAlign: 'left',
@@ -140,4 +138,4 @@ HomeScreen.navigationOptions = ({ navigation }) => ({
     )
 });
 
-export default HomeScreen
+export default AlbumScreen

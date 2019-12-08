@@ -28,14 +28,8 @@ const getAccessToken = async (setAccessToken) => {
 }
 
 const AlbumScreen = props => {
-    const [tracks, setTracks] = useState([])
+    const [tracks, setTracks] = useState('')
     const [accessToken, setAccessToken] = useState('')
-    const [trackDetails, setTrackDetails] = useState({
-        albumName: props.navigation.getParam('albumName'),
-        artistName: props.navigation.getParam('artistName'),
-        albumId: props.navigation.getParam('albumId'),
-
-    })
 
     const getTracks = (albumId) => {
         console.log("trackToken")
@@ -43,18 +37,14 @@ const AlbumScreen = props => {
             getAccessToken(setAccessToken)
         }
         const url = `https://api.spotify.com/v1/albums/${albumId}/tracks?offset=0&access_token=${accessToken}`
-        console.log(url)
         fetch(url)
             .then(response => response.json())
-            .then(data => {
-                setTracks(data['items'])
-                console.log(data['items'])
-            })
+            .then(data => setTracks(data['items']))
             .catch(error => { })
     }
 
-    getTracks(trackDetails.albumId)
-
+    if (tracks == '')
+        getTracks(props.navigation.getParam('albumId'))
 
     return (
         <View style={styles.screen} >

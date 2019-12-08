@@ -1,15 +1,19 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import ProgressiveImage from './ProgressiveImage'
 
 const NewReleases = props => {
     return (
-        <TouchableOpacity onPress={() => props.onSelect()}>
+        <TouchableOpacity
+            onPress={() => props.onSelect()}
+            activeOpacity={0.8}
+        >
             <View style={styles.listItem}>
                 <View style={styles.listItemTextContainer}>
-                <Image
-                    style={styles.image}
-                    source={{ uri: props.albumDetails.item.images[1].url }}
-                />
+                    <ProgressiveImage
+                        style={styles.image}
+                        source={{ uri: props.albumDetails.item.images[1].url }}
+                    />
                     <Text style={styles.titleText}>
                         {props.albumDetails.item.name}
                     </Text>
@@ -17,7 +21,6 @@ const NewReleases = props => {
                         {props.albumDetails.item.artists[0].name}
                     </Text>
                 </View>
-
             </View>
         </TouchableOpacity>
     )

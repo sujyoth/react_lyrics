@@ -1,11 +1,12 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
+import ProgressiveImage from './ProgressiveImage'
 
 const SearchItem = props => {
     return (
         <TouchableOpacity onPress={() => props.onSelect()}>
             <View style={styles.listItem}>
-                <Image
+                <ProgressiveImage
                     style={styles.image}
                     source={{ uri: props.songDetails.item.album.images[0].url }}
                 />
@@ -33,6 +34,7 @@ const styles = StyleSheet.create({
     },
     listItemTextContainer: {
         flex: 1,
+        paddingLeft: 17,
         flexDirection: 'column'
     },
     titleText: {
@@ -47,7 +49,6 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         alignSelf: 'center',
-        marginRight: 17,
         flex: 0
     }
 })

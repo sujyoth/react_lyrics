@@ -1,29 +1,30 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard } from 'react-native'
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard, AsyncStorage } from 'react-native'
 import SearchItem from '../components/SearchItem'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { throttle, debounce } from 'throttle-debounce'
 import * as Base64 from 'base-64'
 import * as Keys from '../assets/keys.json'
+import { Cache } from 'react-native-cache'
+
+var cache = new Cache({
+  namespace: 'accessTokenCache',
+  policy: {
+      maxEntries: 1
+  },
+  backend: AsyncStorage
+})
 
 const getAccessToken = async (setAccessToken) => {
-  const url = 'https://accounts.spotify.com/api/token'
-
-  await fetch(url, {
-    method: 'POST',
-    body: 'grant_type=client_credentials',
-    headers: {
-      'Authorization': 'Basic ' + Base64.encode(`${Keys['client-id']}` + ":" + `${Keys['client-secret']}`),
-      'Content-Type': 'application/x-www-form-urlencoded'
+  cache.getItem("accessToken", function (err, value) {
+    if (err == null) {
+      setAccessToken(value)
+      return
+    } else {
+      console.log(err)
     }
+
   })
-    .then(response => response.json())
-    .then(data => {
-      setAccessToken(data['access_token'])
-      console.log(data)
-      console.log(`Access Token: ${accessToken}`)
-    })
-    .catch(error => { })
 }
 
 const getSearchResults = async (accessToken, setAccessToken, searchedText, setSearchResults) => {

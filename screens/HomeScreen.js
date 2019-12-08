@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet, AsyncStorage } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as Base64 from 'base-64'
 import * as Keys from '../assets/keys.json'
 import NewReleases from '../components/NewReleases';
 import { FlatList } from 'react-native-gesture-handler';
+import { Cache } from 'react-native-cache'
+
+var cache = new Cache({
+    namespace: 'accessTokenCache',
+    policy: {
+        maxEntries: 1
+    },
+    backend: AsyncStorage
+})
+
 
 const getAccessToken = (setAccessToken) => {
     const url = 'https://accounts.spotify.com/api/token'
@@ -19,8 +29,10 @@ const getAccessToken = (setAccessToken) => {
         .then(response => response.json())
         .then(data => {
             setAccessToken(data['access_token'])
+            cache.setItem('accessToken', data['access_token'], function(err) {
+                console.log("Cached")
+            })
             console.log(data)
-            console.log(`Access Token: ${accessToken}`)
         })
         .catch(error => {})
 }

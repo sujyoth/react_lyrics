@@ -5,11 +5,13 @@ import { Text } from 'react-native'
 import HomeScreen from './screens/HomeScreen'
 import SearchScreen from './screens/SearchScreen'
 import LyricsScreen from './screens/LyricsScreen'
+import AlbumScreen from './screens/AlbumScreen'
 
 const MainNavigator = createStackNavigator({
   Home: { screen: HomeScreen },
   Search: { screen: SearchScreen },
-  Lyrics: { screen: LyricsScreen }
+  Lyrics: { screen: LyricsScreen },
+  Album: {screen: AlbumScreen}
 },
 {
   defaultNavigationOptions: {

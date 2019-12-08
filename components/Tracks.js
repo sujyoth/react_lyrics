@@ -1,23 +1,18 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 
-const NewReleases = props => {
+const Tracks = props => {
     return (
         <TouchableOpacity onPress={() => props.onSelect()}>
             <View style={styles.listItem}>
                 <View style={styles.listItemTextContainer}>
-                <Image
-                    style={styles.image}
-                    source={{ uri: props.albumDetails.item.images[1].url }}
-                />
                     <Text style={styles.titleText}>
-                        {props.albumDetails.item.name}
+                        {props.trackDetails.item.name}
                     </Text>
                     <Text style={styles.artistText}>
-                        {props.albumDetails.item.artists[0].name}
+                        {props.trackDetails.item.artists[0].name}
                     </Text>
                 </View>
-
             </View>
         </TouchableOpacity>
     )
@@ -52,4 +47,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default NewReleases
+export default Tracks

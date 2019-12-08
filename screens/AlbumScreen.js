@@ -1,29 +1,30 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet, AsyncStorage } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as Base64 from 'base-64'
 import * as Keys from '../assets/keys.json'
-
 import { FlatList } from 'react-native-gesture-handler';
 import Tracks from '../components/Tracks'
+import { Cache } from 'react-native-cache'
 
-const getAccessToken = (setAccessToken) => {
-    const url = 'https://accounts.spotify.com/api/token'
-    fetch(url, {
-        method: 'POST',
-        body: 'grant_type=client_credentials',
-        headers: {
-            'Authorization': 'Basic ' + Base64.encode(`${Keys['client-id']}` + ":" + `${Keys['client-secret']}`),
-            'Content-Type': 'application/x-www-form-urlencoded'
+var cache = new Cache({
+    namespace: 'accessTokenCache',
+    policy: {
+        maxEntries: 1
+    },
+    backend: AsyncStorage
+})
+
+const getAccessToken = async (setAccessToken) => {
+    cache.getItem("accessToken", function (err, value) {
+        if (err == null) {
+            setAccessToken(value)
+            return
+        } else {
+            console.log(err)
         }
+
     })
-        .then(response => response.json())
-        .then(data => {
-            setAccessToken(data['access_token'])
-            console.log(data)
-            console.log(`Access Token: ${accessToken}`)
-        })
-        .catch(error => { })
 }
 
 const AlbumScreen = props => {
@@ -33,7 +34,7 @@ const AlbumScreen = props => {
         albumName: props.navigation.getParam('albumName'),
         artistName: props.navigation.getParam('artistName'),
         albumId: props.navigation.getParam('albumId'),
-      
+
     })
 
     const getTracks = (albumId) => {
@@ -52,8 +53,8 @@ const AlbumScreen = props => {
             .catch(error => { })
     }
 
-        getTracks(trackDetails.albumId)
-  
+    getTracks(trackDetails.albumId)
+
 
     return (
         <View style={styles.screen} >
@@ -65,7 +66,7 @@ const AlbumScreen = props => {
                     renderItem={trackData => (
                         <Tracks
                             trackDetails={trackData}
-                            onSelect={() => props.navigation.navigate('Lyrics', {imageURL: props.navigation.getParam('imageURL'), songName: trackData.item.name, artistName: trackData.item.artists[0].name, songId: trackData.item.id,  })}
+                            onSelect={() => props.navigation.navigate('Lyrics', { imageURL: props.navigation.getParam('imageURL'), songName: trackData.item.name, artistName: trackData.item.artists[0].name, songId: trackData.item.id, })}
                         />
                     )
                     }

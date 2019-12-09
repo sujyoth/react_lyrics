@@ -3,32 +3,13 @@ import { Text, View, TouchableOpacity, StyleSheet, AsyncStorage } from 'react-na
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { FlatList } from 'react-native-gesture-handler';
 import Tracks from '../components/Tracks'
-import { Cache } from 'react-native-cache'
-
-var cache = new Cache({
-    namespace: 'accessTokenCache',
-    policy: {
-        maxEntries: 1
-    },
-    backend: AsyncStorage
-})
-
-const getAccessToken = async (setAccessToken) => {
-    cache.getItem("access_token", function (err, value) {
-        if (err == null) {
-            setAccessToken(value)
-            return
-        } else {
-            console.log(err)
-        }
-    })
-}
+import getAccessToken from '../utils/SpotifyTokenFetcher'
 
 const AlbumScreen = props => {
     const [tracks, setTracks] = useState('')
     const [accessToken, setAccessToken] = useState('')
 
-    const getTracks = (albumId) => {
+    const getTracks = async (albumId, setTracks) => {
         if (accessToken.length == 0) {
             getAccessToken(setAccessToken)
         }
@@ -40,7 +21,7 @@ const AlbumScreen = props => {
     }
 
     if (tracks == '')
-        getTracks(props.navigation.getParam('albumId'))
+        getTracks(props.navigation.getParam('albumId'), setTracks)
 
     return (
         <View style={styles.screen} >
@@ -54,8 +35,7 @@ const AlbumScreen = props => {
                             trackDetails={trackData}
                             onSelect={() => props.navigation.navigate('GeniusLyrics', { imageURL: props.navigation.getParam('imageURL'), songName: trackData.item.name, artistName: trackData.item.artists[0].name, songId: trackData.item.id, })}
                         />
-                    )
-                    }
+                    )}
                 />
             </View>
         </View>

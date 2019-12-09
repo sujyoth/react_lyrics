@@ -1,40 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, AsyncStorage } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import * as Base64 from 'base-64'
-import * as Keys from '../assets/keys.json'
 import NewReleases from '../components/NewReleases';
 import { FlatList } from 'react-native-gesture-handler';
-import { Cache } from 'react-native-cache'
-
-var cache = new Cache({
-    namespace: 'accessTokenCache',
-    policy: {
-        maxEntries: 1
-    },
-    backend: AsyncStorage
-})
-
-const getAccessToken = (setAccessToken) => {
-    const url = 'https://accounts.spotify.com/api/token'
-    fetch(url, {
-        method: 'POST',
-        body: 'grant_type=client_credentials',
-        headers: {
-            'Authorization': 'Basic ' + Base64.encode(`${Keys['client-id']}` + ":" + `${Keys['client-secret']}`),
-            'Content-Type': 'application/x-www-form-urlencoded'
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            setAccessToken(data['access_token'])
-            cache.setItem('access_token', data['access_token'], function (err) {
-                console.log("Cached")
-            })
-            console.log(data)
-        })
-        .catch(error => { })
-}
+import getAccessToken from '../utils/SpotifyTokenFetcher'
 
 const HomeScreen = props => {
     const [newReleases, setNewReleases] = useState([])
@@ -49,9 +18,10 @@ const HomeScreen = props => {
         fetch(url)
             .then(response => response.json())
             .then(data => {
-                setNewReleases(data['albums']['items'])
+                if (data['albums'] !== undefined)
+                    setNewReleases(data['albums']['items'])
             })
-            .catch(error => { })
+            .catch(error => { console.log(error) })
     }
 
     if (newReleases.length == 0)

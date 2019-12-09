@@ -3,30 +3,11 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard
 import SearchItem from '../components/SearchItem'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { throttle, debounce } from 'throttle-debounce'
-import { Cache } from 'react-native-cache'
-
-var cache = new Cache({
-  namespace: 'accessTokenCache',
-  policy: {
-      maxEntries: 1
-  },
-  backend: AsyncStorage
-})
-
-const getAccessToken = async (setAccessToken) => {
-  cache.getItem("access_token", function (err, value) {
-    if (err == null) {
-      setAccessToken(value)
-      return
-    } else {
-      console.log(err)
-    }
-  })
-}
+import getAccessToken from '../utils/SpotifyTokenFetcher'
 
 const getSearchResults = async (accessToken, setAccessToken, searchedText, setSearchResults) => {
   if (accessToken.length == 0) {
-    await getAccessToken(setAccessToken)
+    getAccessToken(setAccessToken)
   }
   const url = `https://api.spotify.com/v1/search?q=${searchedText}&type=track&limit=10&access_token=${accessToken}`
   await fetch(url)

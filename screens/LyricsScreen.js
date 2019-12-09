@@ -13,14 +13,6 @@ var cache = new Cache({
     backend: AsyncStorage
 })
 
-const scrollYAnimatedValue = new Animated.Value(0)
-
-const headerHeight = scrollYAnimatedValue.interpolate({
-    inputRange: [0, (HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT)],
-    outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
-    extrapolate: 'clamp'
-})
-
 const getLyrics = async (songName, artistName, lyrics, setLyrics) => {
     /*
     Response either arrives successfully as
@@ -29,8 +21,8 @@ const getLyrics = async (songName, artistName, lyrics, setLyrics) => {
     {"error": "error text"}
     */
     await fetch(`https://api.lyrics.ovh/v1/${artistName}/${songName}`)
-        .then(res => res.json())
-        .then(response => setLyrics(response))
+        .then(response => response.json())
+        .then(data => setLyrics(data))
 
     if (lyrics['lyrics'] !== undefined) {
         cache.setItem(songDetails.songId, lyrics['lyrics'], function (err) {
@@ -38,6 +30,14 @@ const getLyrics = async (songName, artistName, lyrics, setLyrics) => {
         })
     }
 }
+
+const scrollYAnimatedValue = new Animated.Value(0)
+
+var headerHeight = scrollYAnimatedValue.interpolate({
+    inputRange: [0, (HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT)],
+    outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
+    extrapolate: 'clamp'
+})
 
 const LyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({

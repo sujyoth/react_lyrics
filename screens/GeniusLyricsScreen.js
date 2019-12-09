@@ -23,25 +23,21 @@ const GeniusLyricsScreen = props => {
     const [lyrics, setLyrics] = useState('')
     const [response, setResponse] = useState('')
     url = ''
-    //lyrics=""
-
 
     const scrollYAnimatedValue = new Animated.Value(0)
 
-    const headerHeight = scrollYAnimatedValue.interpolate(
-        {
-            inputRange: [0, (HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT)],
-            outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
-            extrapolate: 'clamp'
-        }
-    )
+    const headerHeight = scrollYAnimatedValue.interpolate({
+        inputRange: [0, (HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT)],
+        outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
+        extrapolate: 'clamp'
+    })
 
     const requestToken = async (songName, artistName) => {
         const url = `https://api.genius.com/search?q=${songName} ${artistName}`
         await fetch(url, {
             method: 'GET',
             headers: {
-                'Authorization': 'Bearer RcmP8mpY_CwECczrhTP4NvYh358ZDZxCy346dfkf2NRdUFGcuP9wJovLy5_hSGkz',
+                'Authorization': 'Bearer RcmP8mpY_CwECczrhTP4NvYh358ZDZxCy346dfkf2NRdUFGcuP9wJovLy5_hSGkz'
             }
         })
             .then(response => response.json())
@@ -56,8 +52,8 @@ const GeniusLyricsScreen = props => {
             if (response[i]['result']['primary_artist']['name'].toLowerCase() == props.navigation.getParam('artistName').toLowerCase()) {
                 url = (response[i]['result']['url'])
                 fetch(url)
-                    .then((resp) => resp.text())
-                    .then((text) => {
+                    .then(resp => resp.text())
+                    .then(text => {
                         var soup = new JSSoup(text)
                         if (lyrics == '') {
                             setLyrics(soup.find('div', class_ = 'lyrics').getText('\n'))

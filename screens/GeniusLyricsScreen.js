@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
 import { Text, View, StyleSheet, Platform, Animated, ScrollView, ImageBackground, AsyncStorage } from 'react-native'
 import { Cache } from 'react-native-cache'
+import JSSoup from 'jssoup';
 
 const HEADER_MIN_HEIGHT = 90;
 const HEADER_MAX_HEIGHT = 300;
+
+//var soup = new JSSoup(data);
+
+
 
 var cache = new Cache({
     namespace: 'lyricsCache',
@@ -13,6 +18,10 @@ var cache = new Cache({
     backend: AsyncStorage
 })
 
+
+
+
+
 const GeniusLyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({
         songName: props.navigation.getParam('songName'),
@@ -21,6 +30,9 @@ const GeniusLyricsScreen = props => {
     })
     const [lyrics, setLyrics] = useState('')
     const [response, setResponse] = useState('')
+    url=''
+    //lyrics=""
+    
 
     const scrollYAnimatedValue = new Animated.Value(0)
 
@@ -50,13 +62,32 @@ const GeniusLyricsScreen = props => {
     else {
         for (i in response) {
             if (response[i]['result']['primary_artist']['name'].toLowerCase() == props.navigation.getParam('artistName').toLowerCase()) {
-                console.log(response[i]['result']['url'])
+                url=(response[i]['result']['url'])
+                
+    fetch(url)
+    .then((resp)=>
+    { 
+        return resp.text() })
+        .then((text)=>{ 
+            //console.log(text)
+            var soup = new JSSoup(text)
+             if(lyrics==''){
+    setLyrics(soup.find('div', class_='lyrics').getText('\n'))
+    } 
+           
+            
+         })
             }
         }
     }
 
-    //console.log(pathURL)
+   
+           
 
+
+
+    
+    
     return (
         <View style={styles.screen}>
             <Animated.View style={[styles.animatedHeaderContainer, { height: headerHeight }]}>
@@ -65,6 +96,7 @@ const GeniusLyricsScreen = props => {
                     source={{ uri: props.navigation.getParam('imageURL') }}
                 >
                     <Text style={styles.songNameText}>{songDetails.songName}</Text>
+                
                     <Text style={styles.artistNameText}>{songDetails.artistName}</Text>
                 </ImageBackground>
             </Animated.View>
@@ -76,13 +108,13 @@ const GeniusLyricsScreen = props => {
                 )}>
                 <Text
                     style={styles.lyricsText}>
-                    {lyrics['lyrics'] !== undefined ? lyrics['lyrics'] : lyrics['error']}
+                    {lyrics}
                 </Text>
             </ScrollView>
         </View>
     )
-}
 
+                }
 const styles = StyleSheet.create({
     screen: {
         height: '100%',

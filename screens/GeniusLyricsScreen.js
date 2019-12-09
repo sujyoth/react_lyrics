@@ -5,6 +5,14 @@ import JSSoup from 'jssoup';
 const HEADER_MIN_HEIGHT = 90;
 const HEADER_MAX_HEIGHT = 300;
 
+const scrollYAnimatedValue = new Animated.Value(0)
+
+const headerHeight = scrollYAnimatedValue.interpolate({
+    inputRange: [0, (HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT)],
+    outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
+    extrapolate: 'clamp'
+})
+
 const GeniusLyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({
         songName: props.navigation.getParam('songName'),
@@ -13,14 +21,6 @@ const GeniusLyricsScreen = props => {
     })
     const [lyrics, setLyrics] = useState('')
     const [response, setResponse] = useState('')
-
-    const scrollYAnimatedValue = new Animated.Value(0)
-
-    const headerHeight = scrollYAnimatedValue.interpolate({
-        inputRange: [0, (HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT)],
-        outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
-        extrapolate: 'clamp'
-    })
 
     const requestToken = async (songName, artistName) => {
         const url = `https://api.genius.com/search?q=${songName} ${artistName}`

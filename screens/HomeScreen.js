@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet, AsyncStorage } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import NewReleases from '../components/NewReleases';
 import { FlatList } from 'react-native-gesture-handler';

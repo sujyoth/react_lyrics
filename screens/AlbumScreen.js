@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet, AsyncStorage } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { FlatList } from 'react-native-gesture-handler';
 import Tracks from '../components/Tracks'
@@ -9,7 +9,7 @@ const AlbumScreen = props => {
     const [tracks, setTracks] = useState('')
     const [accessToken, setAccessToken] = useState('')
 
-    const getTracks = async (albumId, setTracks) => {
+    const getTracks = async (albumId) => {
         const url = `https://api.spotify.com/v1/albums/${albumId}/tracks?offset=0&access_token=${accessToken}`
         fetch(url)
             .then(response => response.json())

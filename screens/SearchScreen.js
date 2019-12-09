@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard, AsyncStorage } from 'react-native'
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard } from 'react-native'
 import SearchItem from '../components/SearchItem'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { throttle, debounce } from 'throttle-debounce'

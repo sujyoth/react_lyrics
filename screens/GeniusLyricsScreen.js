@@ -1,18 +1,9 @@
 import React, { useState } from 'react'
-import { Text, View, StyleSheet, Platform, Animated, ScrollView, ImageBackground, AsyncStorage } from 'react-native'
-import { Cache } from 'react-native-cache'
+import { Text, View, StyleSheet, Platform, Animated, ScrollView, ImageBackground } from 'react-native'
 import JSSoup from 'jssoup';
 
 const HEADER_MIN_HEIGHT = 90;
 const HEADER_MAX_HEIGHT = 300;
-
-var cache = new Cache({
-    namespace: 'lyricsCache',
-    policy: {
-        maxEntries: 1000
-    },
-    backend: AsyncStorage
-})
 
 const GeniusLyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({
@@ -22,7 +13,6 @@ const GeniusLyricsScreen = props => {
     })
     const [lyrics, setLyrics] = useState('')
     const [response, setResponse] = useState('')
-    url = ''
 
     const scrollYAnimatedValue = new Animated.Value(0)
 

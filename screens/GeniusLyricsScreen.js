@@ -43,15 +43,17 @@ const GeniusLyricsScreen = props => {
             .then(response => response.json())
             .then(data => setResponse((data['response']['hits'])))
             .catch(error => { })
-
     }
 
     if (response == '')
         requestToken(props.navigation.getParam('songName'), props.navigation.getParam('artistName'))
-
-    for (i in response) {
-        console.log(response[i]['result']['url'])
-    } 
+    else {
+        for (i in response) {
+            if (response[i]['result']['primary_artist']['name'].toLowerCase() == props.navigation.getParam('artistName').toLowerCase()) {
+                console.log(response[i]['result']['url'])
+            }
+        }
+    }
 
     //console.log(pathURL)
 

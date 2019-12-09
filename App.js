@@ -13,7 +13,7 @@ const MainNavigator = createStackNavigator({
   Search: { screen: SearchScreen },
   Lyrics: { screen: LyricsScreen },
   Album: {screen: AlbumScreen},
-  GenLyrics: {screen: GeniusLyricsScreen}
+  GeniusLyrics: {screen: GeniusLyricsScreen}
 },
 {
   defaultNavigationOptions: {

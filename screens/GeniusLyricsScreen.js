@@ -13,9 +13,6 @@ var cache = new Cache({
     backend: AsyncStorage
 })
 
-
-
-
 const GeniusLyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({
         songName: props.navigation.getParam('songName'),
@@ -23,8 +20,7 @@ const GeniusLyricsScreen = props => {
         songId: props.navigation.getParam('songId')
     })
     const [lyrics, setLyrics] = useState('')
-    const [response,setResponse] = useState('')
-    const [accessToken, setAccessToken] = useState('')
+    const [response, setResponse] = useState('')
 
     const scrollYAnimatedValue = new Animated.Value(0)
 
@@ -36,32 +32,28 @@ const GeniusLyricsScreen = props => {
         }
     )
 
-    const requestToken = (songName, artistName) => {
+    const requestToken = async (songName, artistName) => {
         const url = `https://api.genius.com/search?q=${songName} ${artistName}`
-        fetch(url, 
-            {
+        await fetch(url, {
             method: 'GET',
-            
             headers: {
-               'Authorization': 'Bearer RcmP8mpY_CwECczrhTP4NvYh358ZDZxCy346dfkf2NRdUFGcuP9wJovLy5_hSGkz',
+                'Authorization': 'Bearer RcmP8mpY_CwECczrhTP4NvYh358ZDZxCy346dfkf2NRdUFGcuP9wJovLy5_hSGkz',
             }
-        }
-        )
+        })
             .then(response => response.json())
-            .then(data => setResponse((data['response'])))
+            .then(data => setResponse((data['response']['hits'])))
             .catch(error => { })
 
-            //console.log('black')
-
     }
-    
-    requestToken(props.navigation.getParam('songName'), props.navigation.getParam('artistName'))
-  
+
+    if (response == '')
+        requestToken(props.navigation.getParam('songName'), props.navigation.getParam('artistName'))
+
+    for (i in response) {
+        console.log(response[i]['result']['url'])
+    } 
+
     //console.log(pathURL)
-
-
-
-    
 
     return (
         <View style={styles.screen}>
@@ -70,8 +62,6 @@ const GeniusLyricsScreen = props => {
                     style={styles.image}
                     source={{ uri: props.navigation.getParam('imageURL') }}
                 >
-                    
-
                     <Text style={styles.songNameText}>{songDetails.songName}</Text>
                     <Text style={styles.artistNameText}>{songDetails.artistName}</Text>
                 </ImageBackground>

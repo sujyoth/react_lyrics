@@ -21,7 +21,6 @@ const getAccessToken = async (setAccessToken) => {
     } else {
       console.log(err)
     }
-
   })
 }
 
@@ -94,7 +93,7 @@ const SearchScreen = props => {
           renderItem={songData => (
             <SearchItem
               songDetails={songData}
-              onSelect={() => props.navigation.navigate('Lyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name, songId: songData.item.id, imageURL: songData.item.album.images[0].url })}
+              onSelect={() => props.navigation.navigate('GeniusLyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name, songId: songData.item.id, imageURL: songData.item.album.images[0].url })}
             />
           )}
         />

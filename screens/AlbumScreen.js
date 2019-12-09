@@ -21,7 +21,6 @@ const getAccessToken = async (setAccessToken) => {
         } else {
             console.log(err)
         }
-
     })
 }
 
@@ -54,7 +53,7 @@ const AlbumScreen = props => {
                     renderItem={trackData => (
                         <Tracks
                             trackDetails={trackData}
-                            onSelect={() => props.navigation.navigate('Lyrics', { imageURL: props.navigation.getParam('imageURL'), songName: trackData.item.name, artistName: trackData.item.artists[0].name, songId: trackData.item.id, })}
+                            onSelect={() => props.navigation.navigate('GeniusLyrics', { imageURL: props.navigation.getParam('imageURL'), songName: trackData.item.name, artistName: trackData.item.artists[0].name, songId: trackData.item.id, })}
                         />
                     )
                     }

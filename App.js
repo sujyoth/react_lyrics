@@ -6,12 +6,14 @@ import HomeScreen from './screens/HomeScreen'
 import SearchScreen from './screens/SearchScreen'
 import LyricsScreen from './screens/LyricsScreen'
 import AlbumScreen from './screens/AlbumScreen'
+import GeniusLyricsScreen from './screens/GeniusLyricsScreen'
 
 const MainNavigator = createStackNavigator({
   Home: { screen: HomeScreen },
   Search: { screen: SearchScreen },
   Lyrics: { screen: LyricsScreen },
-  Album: {screen: AlbumScreen}
+  Album: {screen: AlbumScreen},
+  GenLyrics: {screen: GeniusLyricsScreen}
 },
 {
   defaultNavigationOptions: {

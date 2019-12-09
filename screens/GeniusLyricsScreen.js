@@ -55,8 +55,6 @@ const GeniusLyricsScreen = props => {
         }
     }
 
-    //console.log(pathURL)
-
     return (
         <View style={styles.screen}>
             <Animated.View style={[styles.animatedHeaderContainer, { height: headerHeight }]}>

@@ -11,6 +11,8 @@ var cache = new Cache({
 })
 
 const getAccessToken = (setAccessToken) => {
+    if cache.getItem('timeStamp')
+
     const url = 'https://accounts.spotify.com/api/token'
     fetch(url, {
         method: 'POST',
@@ -26,7 +28,9 @@ const getAccessToken = (setAccessToken) => {
             cache.setItem('accessToken', data['access_token'], function (err) {
                 console.log("Spotify Access Token cached")
             })
-            cache.setItem('timeStamp', )
+            cache.setItem('timeStamp', Date.now(), function (err) {
+                console.log("Timestamp cached")
+            })
             console.log(data)
         })
         .catch(error => { })

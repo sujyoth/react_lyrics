@@ -15,7 +15,6 @@ var cache = new Cache({
     backend: AsyncStorage
 })
 
-
 const getAccessToken = (setAccessToken) => {
     const url = 'https://accounts.spotify.com/api/token'
     fetch(url, {
@@ -29,7 +28,7 @@ const getAccessToken = (setAccessToken) => {
         .then(response => response.json())
         .then(data => {
             setAccessToken(data['access_token'])
-            cache.setItem('accessToken', data['access_token'], function (err) {
+            cache.setItem('access_token', data['access_token'], function (err) {
                 console.log("Cached")
             })
             console.log(data)

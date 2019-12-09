@@ -14,7 +14,7 @@ var cache = new Cache({
 })
 
 const getAccessToken = async (setAccessToken) => {
-  cache.getItem("accessToken", function (err, value) {
+  cache.getItem("access_token", function (err, value) {
     if (err == null) {
       setAccessToken(value)
       return

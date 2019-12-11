@@ -1,0 +1,480 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:1:1-48:12
+INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:1:1-48:12
+INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:1:1-48:12
+INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:1:1-48:12
+MERGED from [:react-native-screens] C:\Users\sujyo\lyricvis\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-reanimated] C:\Users\sujyo\lyricvis\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-gesture-handler] C:\Users\sujyo\lyricvis\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.59.10] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.59.10.aar\1f5caa214a2963bcb9690774443ee030\AndroidManifest.xml:2:1-13:12
+MERGED from [:expo-permissions] C:\Users\sujyo\lyricvis\node_modules\expo-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.0.aar\3f226e78e9a529d7d292e7b975f70c65\AndroidManifest.xml:17:1-22:12
+MERGED from [:unimodules-react-native-adapter] C:\Users\sujyo\lyricvis\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-app-loader-provider] C:\Users\sujyo\lyricvis\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-constants] C:\Users\sujyo\lyricvis\node_modules\expo-constants\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-30:12
+MERGED from [:expo-font] C:\Users\sujyo\lyricvis\node_modules\expo-font\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-keep-awake] C:\Users\sujyo\lyricvis\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-linear-gradient] C:\Users\sujyo\lyricvis\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-21:12
+MERGED from [:expo-sqlite] C:\Users\sujyo\lyricvis\node_modules\expo-sqlite\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-web-browser] C:\Users\sujyo\lyricvis\node_modules\expo-web-browser\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-barcode-scanner-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-camera-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-constants-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-face-detector-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-file-system-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-font-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-permissions-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-task-manager-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-core] C:\Users\sujyo\lyricvis\node_modules\@unimodules\core\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-image-loader-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-sensors-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.transition:transition:1.1.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\transition-1.1.0.aar\8332232f23b801a778247ccabc5bbd99\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\browser-1.0.0.aar\74958b81c0948fc1a5814a041364158f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\f8a2299cb680d103261e88efa76e39c8\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\53ca79e35397e545d4f46100ff97611a\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\a0ae9b1a973877fc9ca38ef81e9d3f16\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-tasks-16.0.1.aar\ed752e4cfa7f8573d5792ef021389d3c\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\e3a4ad2e836f88ae8f5ed06b81bdbefb\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\ff63a28850f5865f4c4fdfe975bb07ae\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\d0cae47463f1c1965d9e9f253abd3c44\AndroidManifest.xml:2:1-12:12
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\fragment-1.0.0.aar\ed6b6f6af10a53b7e4d86d07e5cd455b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\df44600d4d1f014f146cc56fa85d2bbd\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\acc0a40aa699254409f2823e98ff9e7a\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\25d52e2f11afff5602bedf016c9e0ec5\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.0.0.aar\397b17a83b6ab89ed825f30b3ce1d1c2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\78365cca7881417bc451d57427628dfc\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\e9a18acb901bb12803b8c1d83acfcc01\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\0d17968b20449809490cfe4e8a123294\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\ef3b319a48743601e49ecbbb10ecc9c8\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\48de4874cd1f385b6e1f5291e722824c\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\d5c1b34e4ceef6237e5bc292ee3b73da\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\aedb525db0099d7766b56a2113c6dfaa\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\8c3f7ecc0a0f0a27b665419e32c73087\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\86bd9714cfb7598f58e10c5cf2305b60\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\core-1.0.1.aar\f224a80fa3f5cd848acd0609dc909198\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\c6839eae97822856d29e74f1d3a9d0a8\AndroidManifest.xml:17:1-25:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\187c105f543d44844e25879ca557cc7b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\050a2015475ff8a201216b75353111f8\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\e8e43b62b631db4873937d494c1574b5\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\7022feabb2e7b03f008ec592da01d346\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\a1a0f1319fde27a681affb6bd022901b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\ddcdd1b88681760ba5af62456a9af1ad\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\9137c97e6515d97a9e4a82d6b00d435d\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\ae61fc42c90de7270184cafe08d699fb\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\b369fd1b53d851dd9e70f45e6f3f7f4d\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\95413b9a42d17d9cd62cb1473bd00755\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\8f8e8740c2572e6bf5b475ddcd8ce7f0\AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.fresco:fresco:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-fresco-1.10.0.aar\96d49a2c7a3034e9dcc1dda22f01a94e\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-1.10.0.aar\26d1813a7678c17e7b6986271868994b\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-drawee-1.10.0.aar\c0e269d4dd96ed529684d1fd09cd53c9\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-imagepipeline-1.10.0.aar\8272f18b72ac683024cfc362e5b8b4c3\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-imagepipeline-base-1.10.0.aar\09f890e583c92c7c0473dd0a020e8473\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\dea97958b59aacc35e84dc7da0370a95\AndroidManifest.xml:2:1-13:12
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:2:1-30:12
+MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-fbcore-1.10.0.aar\9c32a675acc55667a7d64ba9449d08c1\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:1:1-48:12
+INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:1:1-48:12
+INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:1:1-48:12
+	package
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:2:5-27
+		INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:1:1-48:12
+		INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:1:1-48:12
+		INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:4:5-67
+MERGED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-67
+MERGED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-67
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:5:5-77
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:5:22-75
+uses-permission#android.permission.MANAGE_DOCUMENTS
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:8:5-75
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:8:22-72
+uses-permission#android.permission.READ_INTERNAL_STORAGE
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:9:5-80
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:9:22-77
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:10:5-75
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:10:22-72
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:11:5-74
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:11:22-71
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:12:5-66
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:12:22-63
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:13:5-80
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:13:22-77
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:16:5-81
+MERGED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
+MERGED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-81
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:12:5-81
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:16:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:17:5-79
+MERGED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-79
+MERGED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-79
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:14:5-79
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:14:5-79
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:17:22-76
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:18:5-65
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:18:22-62
+uses-permission#android.permission.READ_CONTACTS
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:19:5-72
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:19:22-69
+uses-permission#android.permission.READ_CALENDAR
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:20:5-72
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:20:22-69
+uses-permission#android.permission.WRITE_CALENDAR
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:21:5-73
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:21:22-70
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:22:5-80
+MERGED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-80
+MERGED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-80
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:22:22-77
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:23:5-71
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:23:22-68
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:24:5-81
+MERGED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-81
+MERGED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-81
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:24:22-78
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:25:5-73
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:25:22-70
+application
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:28:5-46:19
+MERGED from [com.facebook.react:react-native:0.59.10] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.59.10.aar\1f5caa214a2963bcb9690774443ee030\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.59.10] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.59.10.aar\1f5caa214a2963bcb9690774443ee030\AndroidManifest.xml:11:5-20
+MERGED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:5-28:19
+MERGED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:5-28:19
+MERGED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
+MERGED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-19:19
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\f8a2299cb680d103261e88efa76e39c8\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\f8a2299cb680d103261e88efa76e39c8\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\53ca79e35397e545d4f46100ff97611a\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\53ca79e35397e545d4f46100ff97611a\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\a0ae9b1a973877fc9ca38ef81e9d3f16\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\a0ae9b1a973877fc9ca38ef81e9d3f16\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-tasks-16.0.1.aar\ed752e4cfa7f8573d5792ef021389d3c\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-tasks-16.0.1.aar\ed752e4cfa7f8573d5792ef021389d3c\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\e3a4ad2e836f88ae8f5ed06b81bdbefb\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\e3a4ad2e836f88ae8f5ed06b81bdbefb\AndroidManifest.xml:22:5-26:19
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\d0cae47463f1c1965d9e9f253abd3c44\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\d0cae47463f1c1965d9e9f253abd3c44\AndroidManifest.xml:10:5-20
+MERGED from [androidx.core:core:1.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\core-1.0.1.aar\f224a80fa3f5cd848acd0609dc909198\AndroidManifest.xml:22:5-89
+MERGED from [androidx.core:core:1.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\core-1.0.1.aar\f224a80fa3f5cd848acd0609dc909198\AndroidManifest.xml:22:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\c6839eae97822856d29e74f1d3a9d0a8\AndroidManifest.xml:22:5-23:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\c6839eae97822856d29e74f1d3a9d0a8\AndroidManifest.xml:22:5-23:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\8f8e8740c2572e6bf5b475ddcd8ce7f0\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\8f8e8740c2572e6bf5b475ddcd8ce7f0\AndroidManifest.xml:9:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\dea97958b59aacc35e84dc7da0370a95\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\dea97958b59aacc35e84dc7da0370a95\AndroidManifest.xml:11:5-20
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:18:5-28:19
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:18:5-28:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\core-1.0.1.aar\f224a80fa3f5cd848acd0609dc909198\AndroidManifest.xml:22:18-86
+	android:label
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:30:7-39
+	android:roundIcon
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:32:7-52
+	android:icon
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:31:7-41
+	android:allowBackup
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:33:7-34
+	android:theme
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:34:7-38
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:29:7-38
+activity#com.lyricvis.MainActivity
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:35:7-44:18
+	android:label
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:37:9-41
+	android:windowSoftInputMode
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:39:9-51
+	android:configChanges
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:38:9-79
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:36:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:40:9-43:25
+action#android.intent.action.MAIN
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:41:13-65
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:41:21-62
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:42:13-73
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:42:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:45:7-84
+	android:name
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml:45:17-81
+uses-sdk
+INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+MERGED from [:react-native-screens] C:\Users\sujyo\lyricvis\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] C:\Users\sujyo\lyricvis\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] C:\Users\sujyo\lyricvis\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] C:\Users\sujyo\lyricvis\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] C:\Users\sujyo\lyricvis\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] C:\Users\sujyo\lyricvis\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.59.10] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.59.10.aar\1f5caa214a2963bcb9690774443ee030\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.59.10] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.59.10.aar\1f5caa214a2963bcb9690774443ee030\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-permissions] C:\Users\sujyo\lyricvis\node_modules\expo-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-permissions] C:\Users\sujyo\lyricvis\node_modules\expo-permissions\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.0.aar\3f226e78e9a529d7d292e7b975f70c65\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\appcompat-1.0.0.aar\3f226e78e9a529d7d292e7b975f70c65\AndroidManifest.xml:20:5-44
+MERGED from [:unimodules-react-native-adapter] C:\Users\sujyo\lyricvis\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-react-native-adapter] C:\Users\sujyo\lyricvis\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-app-loader-provider] C:\Users\sujyo\lyricvis\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-app-loader-provider] C:\Users\sujyo\lyricvis\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-constants] C:\Users\sujyo\lyricvis\node_modules\expo-constants\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-constants] C:\Users\sujyo\lyricvis\node_modules\expo-constants\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
+MERGED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-10:41
+MERGED from [:expo-font] C:\Users\sujyo\lyricvis\node_modules\expo-font\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-font] C:\Users\sujyo\lyricvis\node_modules\expo-font\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-keep-awake] C:\Users\sujyo\lyricvis\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-keep-awake] C:\Users\sujyo\lyricvis\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-linear-gradient] C:\Users\sujyo\lyricvis\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-linear-gradient] C:\Users\sujyo\lyricvis\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-sqlite] C:\Users\sujyo\lyricvis\node_modules\expo-sqlite\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-sqlite] C:\Users\sujyo\lyricvis\node_modules\expo-sqlite\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-web-browser] C:\Users\sujyo\lyricvis\node_modules\expo-web-browser\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-web-browser] C:\Users\sujyo\lyricvis\node_modules\expo-web-browser\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-barcode-scanner-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-barcode-scanner-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-camera-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-camera-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-constants-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-constants-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-face-detector-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-face-detector-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-file-system-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-file-system-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-font-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-font-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-permissions-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-permissions-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-task-manager-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-task-manager-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-core] C:\Users\sujyo\lyricvis\node_modules\@unimodules\core\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-core] C:\Users\sujyo\lyricvis\node_modules\@unimodules\core\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-image-loader-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-image-loader-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-sensors-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-sensors-interface] C:\Users\sujyo\lyricvis\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [androidx.transition:transition:1.1.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\transition-1.1.0.aar\8332232f23b801a778247ccabc5bbd99\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.1.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\transition-1.1.0.aar\8332232f23b801a778247ccabc5bbd99\AndroidManifest.xml:20:5-44
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\browser-1.0.0.aar\74958b81c0948fc1a5814a041364158f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\browser-1.0.0.aar\74958b81c0948fc1a5814a041364158f\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\f8a2299cb680d103261e88efa76e39c8\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\f8a2299cb680d103261e88efa76e39c8\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\53ca79e35397e545d4f46100ff97611a\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\53ca79e35397e545d4f46100ff97611a\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\a0ae9b1a973877fc9ca38ef81e9d3f16\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\a0ae9b1a973877fc9ca38ef81e9d3f16\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-tasks-16.0.1.aar\ed752e4cfa7f8573d5792ef021389d3c\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-tasks-16.0.1.aar\ed752e4cfa7f8573d5792ef021389d3c\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\e3a4ad2e836f88ae8f5ed06b81bdbefb\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\e3a4ad2e836f88ae8f5ed06b81bdbefb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\ff63a28850f5865f4c4fdfe975bb07ae\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\ff63a28850f5865f4c4fdfe975bb07ae\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\d0cae47463f1c1965d9e9f253abd3c44\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\d0cae47463f1c1965d9e9f253abd3c44\AndroidManifest.xml:6:5-8:41
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\fragment-1.0.0.aar\ed6b6f6af10a53b7e4d86d07e5cd455b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\fragment-1.0.0.aar\ed6b6f6af10a53b7e4d86d07e5cd455b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\df44600d4d1f014f146cc56fa85d2bbd\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.0.0.aar\df44600d4d1f014f146cc56fa85d2bbd\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\acc0a40aa699254409f2823e98ff9e7a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\acc0a40aa699254409f2823e98ff9e7a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\25d52e2f11afff5602bedf016c9e0ec5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\25d52e2f11afff5602bedf016c9e0ec5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.0.0.aar\397b17a83b6ab89ed825f30b3ce1d1c2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.0.0.aar\397b17a83b6ab89ed825f30b3ce1d1c2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\78365cca7881417bc451d57427628dfc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\78365cca7881417bc451d57427628dfc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\e9a18acb901bb12803b8c1d83acfcc01\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\e9a18acb901bb12803b8c1d83acfcc01\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\0d17968b20449809490cfe4e8a123294\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\0d17968b20449809490cfe4e8a123294\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\ef3b319a48743601e49ecbbb10ecc9c8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\ef3b319a48743601e49ecbbb10ecc9c8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\48de4874cd1f385b6e1f5291e722824c\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\48de4874cd1f385b6e1f5291e722824c\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\d5c1b34e4ceef6237e5bc292ee3b73da\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\d5c1b34e4ceef6237e5bc292ee3b73da\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\aedb525db0099d7766b56a2113c6dfaa\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\aedb525db0099d7766b56a2113c6dfaa\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\8c3f7ecc0a0f0a27b665419e32c73087\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\8c3f7ecc0a0f0a27b665419e32c73087\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\86bd9714cfb7598f58e10c5cf2305b60\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\86bd9714cfb7598f58e10c5cf2305b60\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\core-1.0.1.aar\f224a80fa3f5cd848acd0609dc909198\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\core-1.0.1.aar\f224a80fa3f5cd848acd0609dc909198\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\c6839eae97822856d29e74f1d3a9d0a8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.0.0.aar\c6839eae97822856d29e74f1d3a9d0a8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\187c105f543d44844e25879ca557cc7b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\187c105f543d44844e25879ca557cc7b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\050a2015475ff8a201216b75353111f8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\050a2015475ff8a201216b75353111f8\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\e8e43b62b631db4873937d494c1574b5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\e8e43b62b631db4873937d494c1574b5\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\7022feabb2e7b03f008ec592da01d346\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\7022feabb2e7b03f008ec592da01d346\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\a1a0f1319fde27a681affb6bd022901b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.0.0.aar\a1a0f1319fde27a681affb6bd022901b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\ddcdd1b88681760ba5af62456a9af1ad\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\ddcdd1b88681760ba5af62456a9af1ad\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\9137c97e6515d97a9e4a82d6b00d435d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.0.0.aar\9137c97e6515d97a9e4a82d6b00d435d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\ae61fc42c90de7270184cafe08d699fb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\ae61fc42c90de7270184cafe08d699fb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\b369fd1b53d851dd9e70f45e6f3f7f4d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\b369fd1b53d851dd9e70f45e6f3f7f4d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\95413b9a42d17d9cd62cb1473bd00755\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\95413b9a42d17d9cd62cb1473bd00755\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\8f8e8740c2572e6bf5b475ddcd8ce7f0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\8f8e8740c2572e6bf5b475ddcd8ce7f0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-fresco-1.10.0.aar\96d49a2c7a3034e9dcc1dda22f01a94e\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-fresco-1.10.0.aar\96d49a2c7a3034e9dcc1dda22f01a94e\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-1.10.0.aar\26d1813a7678c17e7b6986271868994b\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-1.10.0.aar\26d1813a7678c17e7b6986271868994b\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-drawee-1.10.0.aar\c0e269d4dd96ed529684d1fd09cd53c9\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-drawee-1.10.0.aar\c0e269d4dd96ed529684d1fd09cd53c9\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-imagepipeline-1.10.0.aar\8272f18b72ac683024cfc362e5b8b4c3\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-imagepipeline-1.10.0.aar\8272f18b72ac683024cfc362e5b8b4c3\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-imagepipeline-base-1.10.0.aar\09f890e583c92c7c0473dd0a020e8473\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-imagepipeline-base-1.10.0.aar\09f890e583c92c7c0473dd0a020e8473\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\dea97958b59aacc35e84dc7da0370a95\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\dea97958b59aacc35e84dc7da0370a95\AndroidManifest.xml:7:5-9:41
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:8:5-10:41
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:8:5-10:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-fbcore-1.10.0.aar\9c32a675acc55667a7d64ba9449d08c1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-fbcore-1.10.0.aar\9c32a675acc55667a7d64ba9449d08c1\AndroidManifest.xml:5:5-7:41
+INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\sujyo\lyricvis\android\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.STORAGE
+ADDED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-66
+	android:name
+		ADDED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:22-63
+provider#expo.modules.filesystem.FileSystemFileProvider
+ADDED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:9-27:20
+	android:grantUriPermissions
+		ADDED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:13-47
+	android:authorities
+		ADDED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-74
+	android:exported
+		ADDED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:13-37
+	tools:replace
+		ADDED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:23:13-48
+	android:name
+		ADDED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-74
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:24:13-26:70
+	android:resource
+		ADDED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:26:17-67
+	android:name
+		ADDED from [:expo-file-system] C:\Users\sujyo\lyricvis\node_modules\expo-file-system\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:25:17-67
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:5-77
+	android:name
+		ADDED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:22-74
+service#expo.modules.location.services.LocationTaskService
+ADDED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:9-18:40
+	android:exported
+		ADDED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-37
+	android:name
+		ADDED from [:expo-location] C:\Users\sujyo\lyricvis\node_modules\expo-location\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-78
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\53ca79e35397e545d4f46100ff97611a\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\53ca79e35397e545d4f46100ff97611a\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\53ca79e35397e545d4f46100ff97611a\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-base-16.0.1.aar\53ca79e35397e545d4f46100ff97611a\AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\e3a4ad2e836f88ae8f5ed06b81bdbefb\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\e3a4ad2e836f88ae8f5ed06b81bdbefb\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:16.0.1] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-16.0.1.aar\e3a4ad2e836f88ae8f5ed06b81bdbefb\AndroidManifest.xml:24:13-58
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:13:22-76
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:15:5-98
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:15:22-95
+uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:16:5-94
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:16:22-91
+service#io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:19:9-21:40
+	android:exported
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:21:13-37
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:20:13-132
+service#io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:22:9-24:40
+	android:exported
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:24:13-37
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:23:13-127
+service#io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:25:9-27:40
+	android:exported
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\sujyo\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\5410bb4c75efdab2dab33bfbb0b3ea30\AndroidManifest.xml:26:13-120

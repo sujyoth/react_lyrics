@@ -89,9 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#192231'
   },
   inputContainer: {
-    paddingTop: 40,
-    paddingBottom: 10,
-    paddingHorizontal: 10,
+    padding: 10,
     backgroundColor: '#f4511e',
     flexDirection: 'row',
     justifyContent: 'space-between',

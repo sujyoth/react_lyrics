@@ -28,9 +28,6 @@
     },
     "android": {
       "package": "com.ash.lyricvis"
-    },
-    "entryPoint": "node_modules/expo/AppEntry.js"
-  },
-  "displayName": "LyricVis",
-  "name": "LyricVis"
+    }
+  }
 }

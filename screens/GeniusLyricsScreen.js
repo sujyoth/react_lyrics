@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { Text, View, StyleSheet, Platform, Animated, ScrollView, ImageBackground, TouchableOpacity } from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialIcons'
-import JSSoup from 'jssoup'
+import { Text, View, StyleSheet, Platform, Animated, ScrollView, ImageBackground } from 'react-native'
+import JSSoup from 'jssoup';
 
-const HEADER_MIN_HEIGHT = 56;
+const HEADER_MIN_HEIGHT = 90;
 const HEADER_MAX_HEIGHT = 300;
 
 const scrollYAnimatedValue = new Animated.Value(0)
@@ -61,17 +60,8 @@ const GeniusLyricsScreen = props => {
                     style={styles.image}
                     source={{ uri: props.navigation.getParam('imageURL') }}
                 >
-                    <View style={styles.headerContentContainer}>
-                        <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.goBack()}>
-                            <View>
-                                <Icon name="arrow-back" style={styles.Button} />
-                            </View>
-                        </TouchableOpacity>
-                        <View>
-                            <Text style={styles.songNameText}>{songDetails.songName}</Text>
-                            <Text style={styles.artistNameText}>{songDetails.artistName}</Text>
-                        </View>
-                    </View>
+                    <Text style={styles.songNameText}>{songDetails.songName}</Text>
+                    <Text style={styles.artistNameText}>{songDetails.artistName}</Text>
                 </ImageBackground>
             </Animated.View>
             <ScrollView
@@ -93,17 +83,8 @@ const styles = StyleSheet.create({
         height: '100%',
         backgroundColor: '#192231'
     },
-    headerContentContainer: {
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-    },
-    Button: {
-        padding: 5,
-        fontSize: 25,
-        color: '#fff'
-    },
     songNameText: {
+        paddingTop: 25,
         paddingHorizontal: 10,
         fontSize: 22,
         fontWeight: 'bold',

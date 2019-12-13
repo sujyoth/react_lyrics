@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { Text, View, StyleSheet, Platform, Animated, ScrollView, ImageBackground } from 'react-native'
-import JSSoup from 'jssoup';
+import { Text, View, StyleSheet, Platform, Animated, ScrollView, ImageBackground, TouchableOpacity } from 'react-native'
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import JSSoup from 'jssoup'
 
 const HEADER_MIN_HEIGHT = 90;
 const HEADER_MAX_HEIGHT = 300;
@@ -60,8 +61,17 @@ const GeniusLyricsScreen = props => {
                     style={styles.image}
                     source={{ uri: props.navigation.getParam('imageURL') }}
                 >
-                    <Text style={styles.songNameText}>{songDetails.songName}</Text>
-                    <Text style={styles.artistNameText}>{songDetails.artistName}</Text>
+                    <View style={styles.headerContentContainer}>
+                        <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.goBack()}>
+                            <View>
+                                <Icon name="arrow-back" style={styles.Button} />
+                            </View>
+                        </TouchableOpacity>
+                        <View>
+                            <Text style={styles.songNameText}>{songDetails.songName}</Text>
+                            <Text style={styles.artistNameText}>{songDetails.artistName}</Text>
+                        </View>
+                    </View>
                 </ImageBackground>
             </Animated.View>
             <ScrollView
@@ -83,8 +93,26 @@ const styles = StyleSheet.create({
         height: '100%',
         backgroundColor: '#192231'
     },
+    animatedHeaderContainer: {
+        elevation: 10,
+        position: 'absolute',
+        top: (Platform.OS == 'ios') ? 20 : 0,
+        left: 0,
+        right: 0,
+        justifyContent: 'center',
+    },
+    headerContentContainer: {
+        paddingTop: 20,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
+    Button: {
+        padding: 5,
+        fontSize: 25,
+        color: '#fff'
+    },
     songNameText: {
-        paddingTop: 25,
         paddingHorizontal: 10,
         fontSize: 22,
         fontWeight: 'bold',
@@ -106,19 +134,6 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignSelf: 'center',
-    },
-    imageContainer: {
-        height: 20,
-        width: 20,
-        alignContent: 'flex-end'
-    },
-    animatedHeaderContainer: {
-        elevation: 10,
-        position: 'absolute',
-        top: (Platform.OS == 'ios') ? 20 : 0,
-        left: 0,
-        right: 0,
-        justifyContent: 'center',
     }
 })
 

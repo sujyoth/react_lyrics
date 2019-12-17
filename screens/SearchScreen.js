@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard
 import SearchItem from '../components/SearchItem'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { throttle, debounce } from 'throttle-debounce'
-import getAccessToken from '../utils/SpotifyTokenFetcher'
+import { getAccessToken } from '../utils/SpotifyTokenFetcher'
 
 const getSearchResults = async (accessToken, setAccessToken, searchedText, setSearchResults) => {
   if (accessToken.length == 0) {

@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, View, TouchableOpacity, StyleSheet, Button } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import NewReleases from '../components/NewReleases';
 import { FlatList } from 'react-native-gesture-handler';
-import getAccessToken from '../utils/SpotifyTokenFetcher'
+import { getAccessToken, getNowPlaying } from '../utils/SpotifyTokenFetcher'
 
 const HomeScreen = props => {
     const [newReleases, setNewReleases] = useState([])
     const [accessToken, setAccessToken] = useState('')
+    const [nowPlaying, setNowPlaying] = useState('')
 
     const getNewReleases = () => {
+        console.log('aadassa', accessToken)
         if (accessToken.length == 0) {
             getAccessToken(setAccessToken)
         }
         const url = `https://api.spotify.com/v1/browse/new-releases?country=IN&offset=0&limit=10&access_token=${accessToken}`
-        console.log(url)
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -24,11 +25,32 @@ const HomeScreen = props => {
             .catch(error => { console.log(error) })
     }
 
-    if (newReleases.length == 0)
+    if (newReleases.length == 0) {
         getNewReleases()
+    }
+
+    if (nowPlaying.length == 0) {
+        getNowPlaying(setNowPlaying)
+    }
 
     return (
         <View style={styles.screen} >
+            <Text style={styles.activityHeader}>Now Playing</Text>
+            <View style={styles.nowPlayingContainer}>
+                <Text style={styles.activityHeader}>{nowPlaying !== '' ? nowPlaying : 'Nothing'}</Text>
+                <TouchableOpacity
+                    activeOpacity={0.7}
+                    onPress={() => getNowPlaying(setNowPlaying)}
+                    style={styles.buttonContainer}
+                >
+                    <View>
+                        <Icon
+                            name="refresh"
+                            style={styles.searchButton}
+                        />
+                    </View>
+                </TouchableOpacity>
+            </View>
             <Text style={styles.activityHeader}>New Releases</Text>
             <View>
                 <FlatList
@@ -70,6 +92,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#cfd9e5',
     },
+    nowPlayingContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignContent: 'center'
+    },
     songNameText: {
         paddingHorizontal: 10,
         fontSize: 30,
@@ -80,7 +107,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         fontSize: 20,
         color: '#cfd9e5',
-
     },
     lyricsText: {
         fontSize: 14,

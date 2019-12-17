@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { FlatList } from 'react-native-gesture-handler';
 import Tracks from '../components/Tracks'
-import getAccessToken from '../utils/SpotifyTokenFetcher'
+import { getAccessToken } from '../utils/SpotifyTokenFetcher'
 
 const AlbumScreen = props => {
     const [tracks, setTracks] = useState('')

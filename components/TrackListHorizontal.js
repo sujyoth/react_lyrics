@@ -11,7 +11,7 @@ const TrackListHorizontal = props => {
                 <View style={styles.listItemTextContainer}>
                     <Image
                         style={styles.image}
-                        source={{ uri: props.songDetails.item.images[1].url }}
+                        source={{ uri: props.songDetails.item.album.images[0].url }}
                     />
                     <Text style={styles.titleText}>
                         {props.songDetails.item.name}

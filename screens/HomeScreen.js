@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet, Button } from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import AlbumListHorizontal from '../components/AlbumListHorizontal';
-import { FlatList } from 'react-native-gesture-handler';
+import { Text, View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native'
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import AlbumListHorizontal from '../components/AlbumListHorizontal'
+import TrackListHorizontal from '../components/TrackListHorizontal'
+import { FlatList } from 'react-native-gesture-handler'
 import { getAccessToken, getNowPlaying, getRecentlyPlayed } from '../utils/SpotifyTokenFetcher'
 
 const HomeScreen = props => {
@@ -34,11 +35,13 @@ const HomeScreen = props => {
         }
         if (recentlyPlayed.length == 0) {
             getRecentlyPlayed(setRecentlyPlayed)
+        } else {
+            console.log(recentlyPlayed[0])
         }
     }
 
     return (
-        <View style={styles.screen} >
+        <ScrollView style={styles.screen} >
             <Text style={styles.activityHeader}>Now Playing</Text>
             <View style={styles.nowPlayingContainer}>
                 {
@@ -78,7 +81,23 @@ const HomeScreen = props => {
                     )}
                 />
             </View>
-        </View>
+            <Text style={styles.activityHeader}>Recently Played</Text>
+            <View>
+                <FlatList
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    data={recentlyPlayed}
+                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={songData => (
+                        <TrackListHorizontal
+                            songDetails={songData}
+                            onSelect={() => props.navigation.navigate('GeniusLyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name, songId: songData.item.id, imageURL: songData.item.album.images[0].url })}
+                            //onSelect={() => props.navigation.navigate('Album', { imageURL: songData.item.images[0].url, albumName: songData.item.name, albumId: songData.item.id, artistName: songData.item.artists[0].name })}
+                        />
+                    )}
+                />
+            </View>
+        </ScrollView>
     )
 }
 

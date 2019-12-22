@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, FlatList, TouchableOpacity, TextInput, Keyboard } from 'react-native'
 import SearchItem from '../components/SearchItem'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { getAccessToken } from '../utils/SpotifyTokenFetcher'
@@ -28,7 +28,7 @@ const SearchScreen = props => {
   }, [searchedText])
 
   return (
-    <View style={styles.screen} >
+    <ScrollView style={styles.screen} >
       <View style={styles.inputContainer}>
         <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.goBack()}>
           <View>
@@ -67,7 +67,7 @@ const SearchScreen = props => {
           )}
         />
       </View>
-    </View>
+    </ScrollView>
   )
 }
 

@@ -1,22 +1,9 @@
-import { AsyncStorage } from 'react-native'
-import { Cache } from 'react-native-cache'
 import { AuthSession } from 'expo'
 import * as Base64 from 'base-64'
 import * as Keys from '../assets/keys.json'
 
-var cache = new Cache({
-    namespace: 'accessTokenCache',
-    policy: {
-        maxEntries: 2
-    },
-    backend: AsyncStorage
-})
-
-
-const handleSpotifyLogin = async () => {
-    
+const handleSpotifyLogin = async (setAccessToken) => {
     let redirectUrl = AuthSession.getRedirectUrl()
-
     let results = await AuthSession.startAsync({
         authUrl: `https://accounts.spotify.com/authorize?client_id=${Keys['client-id']}&redirect_uri=${encodeURIComponent(redirectUrl)}&scope=user-read-currently-playing&response_type=code`
     })
@@ -25,8 +12,8 @@ const handleSpotifyLogin = async () => {
         console.log("Login Unsuccessful.")
     } else {
         console.log('Login Successful.')
-
         console.log('Fetching Refresh Token and Access Token...')
+
         await fetch('https://accounts.spotify.com/api/token', {
             method: 'POST',
             body: `grant_type=authorization_code&code=${results.params.code}&redirect_uri=${redirectUrl}`,
@@ -37,91 +24,86 @@ const handleSpotifyLogin = async () => {
         })
             .then(response => response.json())
             .then(data => {
-                cache.setItem('access_token', data.access_token, err => {
-                    (err == undefined) ? console.log("Fetched access token cached.") : console.log(err)
-                })
-                cache.setItem('refresh_token', data.refresh_token, err => {
-                    (err == undefined) ? console.log("Fetched refresh token cached.") : console.log(err)
-                })
+                Keys['access_token'] = data.access_token
+                Keys['access_token_created_on'] = Date.now()
+                setAccessToken(data.access_token)
+                Keys['refresh_token'] = data.refresh_token
+                console.log('Access token and refresh token cached.')
             })
     }
 }
 
 const fetchToken = (setAccessToken) => {
     console.log('Fetching access token.')
-    cache.getAll((err, entry) => {
-        if (err == undefined && entry['refresh_token'] !== null && entry['refresh_token'] !== undefined) {
-            console.log('Cached refresh token retrieved.')
+    const refresh_token = Keys['refresh_token']
+    if (refresh_token !== undefined) {
+        console.log('Cached refresh token retrieved.')
 
-            const url = 'https://accounts.spotify.com/api/token'
-            fetch(url, {
-                method: 'POST',
-                body: `grant_type=refresh_token&refresh_token=${entry['refresh_token']}`,
-                headers: {
-                    'Authorization': 'Basic ' + Base64.encode(`${Keys['client-id']}` + ":" + `${Keys['client-secret']}`),
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                }
+        const url = 'https://accounts.spotify.com/api/token'
+        fetch(url, {
+            method: 'POST',
+            body: `grant_type=refresh_token&refresh_token=${refresh_token}`,
+            headers: {
+                'Authorization': 'Basic ' + Base64.encode(`${Keys['client-id']}` + ":" + `${Keys['client-secret']}`),
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                setAccessToken(data['access_token'])
+                console.log('hells bells', data)
+                Keys['access_token'] = data.access_token
+                Keys['access_token_created_on'] = Date.now()
+                console.log("Fetched access token cached.")
             })
-                .then(response => response.json())
-                .then(data => {
-                    setAccessToken(data['access_token'])
-                    cache.setItem('access_token', data['access_token'], (err) => {
-                        (err == undefined) ? console.log("Fetched access token cached.") : console.log(err)
-                    })
-                })
-                .catch(error => { console.log(error) })
-
-        } else {
-            console.log('Refresh token does not exist in cache.')
-            handleSpotifyLogin()
-        }
-    })
-
+            .catch(error => console.log(error))
+    } else {
+        console.log('Refresh token does not exist in cache.')
+        handleSpotifyLogin(setAccessToken)
+    }
 }
 
 const getAccessToken = async (setAccessToken) => {
-    cache.getAll((err, entry) => {
-        if (err == undefined && entry['access_token'] !== null && entry['access_token'] !== undefined) {
-            if (Date.now() - Date.parse(entry['access_token']['created']) < 3000000) {
-                console.log('Cached access token has not expired yet.')
-                console.log('entry', entry)
-                setAccessToken(entry['access_token']['value'])
-                console.log("Cached access token retrieved.")
-            } else {
-                console.log('Cached access token has expired.')
-                fetchToken(setAccessToken)
-            }
+    const access_token = Keys['access_token']
+    const created_on = Keys['access_token_created_on']
+    if (access_token !== undefined) {
+        if (Date.now() - created_on < 3000000) {
+            console.log('Cached access token has not expired yet.')
+            setAccessToken(access_token)
+            console.log('Cached access token retrieved')
         } else {
-            console.log('Access token does not exist in cache.')
+            console.log('Cached access token has expired.')
             fetchToken(setAccessToken)
         }
-    })
+    } else {
+        console.log('Access token does not exist in cache.')
+        fetchToken(setAccessToken)
+    }
 }
 
 const getNowPlaying = (setNowPlaying, setAccessToken) => {
     console.log('Fetching now playing...')
-        cache.getAll((err, entry) => {
-            if (err == undefined && entry.access_token !== null && entry.access_token !== undefined) {
-                fetch('https://api.spotify.com/v1/me/player/currently-playing', {
-                    headers: {
-                        'Authorization': `Bearer ${entry.access_token.value}`
-                    }
-                })
-                    .then(async response => {
-                        if (response.status == 204) {
-                            console.log('No song playing')
-                        } else {
-                            const trackInfo = await response.json()
-                            setNowPlaying(trackInfo.item.name)
-                            console.log('Now playing: ', trackInfo.item.name)
-                        }
-                    })
-                    .catch(error => console.log(error))
-            } else {
-                console.log('Invalid access token.')
-                getAccessToken(setAccessToken)
+    const access_token = Keys['access_token']
+    if (access_token !== undefined) {
+        fetch('https://api.spotify.com/v1/me/player/currently-playing', {
+            headers: {
+                'Authorization': `Bearer ${access_token}`
             }
         })
+            .then(async response => {
+                if (response.status == 204) {
+                    console.log('No song playing')
+                } else {
+                    const trackInfo = await response.json()
+                    setNowPlaying(trackInfo.item.name)
+                    console.log('Now playing: ', trackInfo.item.name)
+                }
+            })
+            .catch(error => console.log(error))
+    } else {
+        console.log('Invalid access token.')
+        getAccessToken(setAccessToken)
+    }
 }
 
 export { getAccessToken, getNowPlaying }

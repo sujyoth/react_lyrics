@@ -1,17 +1,8 @@
 import React, { useState } from 'react'
 import { Text, View, StyleSheet, Platform, Animated, ScrollView, ImageBackground, AsyncStorage } from 'react-native'
-import { Cache } from 'react-native-cache'
 
 const HEADER_MIN_HEIGHT = 90;
 const HEADER_MAX_HEIGHT = 300;
-
-var cache = new Cache({
-    namespace: 'lyricsCache',
-    policy: {
-        maxEntries: 1000
-    },
-    backend: AsyncStorage
-})
 
 const getLyrics = async (songName, artistName, lyrics, setLyrics) => {
     /*
@@ -23,12 +14,6 @@ const getLyrics = async (songName, artistName, lyrics, setLyrics) => {
     await fetch(`https://api.lyrics.ovh/v1/${artistName}/${songName}`)
         .then(response => response.json())
         .then(data => setLyrics(data))
-
-    if (lyrics['lyrics'] !== undefined) {
-        cache.setItem(songDetails.songId, lyrics['lyrics'], function (err) {
-            console.log("Cached")
-        })
-    }
 }
 
 const scrollYAnimatedValue = new Animated.Value(0)

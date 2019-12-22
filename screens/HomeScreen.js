@@ -11,10 +11,7 @@ const HomeScreen = props => {
     const [nowPlaying, setNowPlaying] = useState('')
 
     const getNewReleases = () => {
-        console.log('aadassa', accessToken)
-        if (accessToken.length == 0) {
-            getAccessToken(setAccessToken)
-        }
+        console.log('Getting new releases...')
         const url = `https://api.spotify.com/v1/browse/new-releases?country=IN&offset=0&limit=10&access_token=${accessToken}`
         fetch(url)
             .then(response => response.json())
@@ -25,11 +22,15 @@ const HomeScreen = props => {
             .catch(error => { console.log(error) })
     }
 
-    if (newReleases.length == 0) {
+    if (accessToken.length == 0) {
+        getAccessToken(setAccessToken)
+    }
+
+    if (accessToken.length !== 0 & newReleases.length == 0) {
         getNewReleases()
     }
 
-    if (nowPlaying.length == 0) {
+    if (accessToken.length !== 0 & nowPlaying.length == 0) {
         getNowPlaying(setNowPlaying)
     }
 
@@ -37,7 +38,11 @@ const HomeScreen = props => {
         <View style={styles.screen} >
             <Text style={styles.activityHeader}>Now Playing</Text>
             <View style={styles.nowPlayingContainer}>
-                <Text style={styles.activityHeader}>{nowPlaying !== '' ? nowPlaying : 'Nothing'}</Text>
+            
+                <TouchableOpacity>
+                    <Text style={styles.activityHeader}>{nowPlaying !== '' ? nowPlaying : 'Nothing'}</Text>
+                </TouchableOpacity>
+
                 <TouchableOpacity
                     activeOpacity={0.7}
                     onPress={() => getNowPlaying(setNowPlaying)}

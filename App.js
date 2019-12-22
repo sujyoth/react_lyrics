@@ -1,7 +1,5 @@
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
-import React from 'react'
-import { Text } from 'react-native'
 import HomeScreen from './screens/HomeScreen'
 import SearchScreen from './screens/SearchScreen'
 import LyricsScreen from './screens/LyricsScreen'

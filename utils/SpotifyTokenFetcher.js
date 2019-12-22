@@ -96,6 +96,7 @@ const getNowPlaying = (setNowPlaying, setAccessToken) => {
                 } else {
                     const trackInfo = await response.json()
                     setNowPlaying(trackInfo)
+                    console.log(`${trackInfo.item.name} - ${trackInfo.item.artists[0].name}`)
                 }
             })
             .catch(error => console.log(error))

@@ -1,8 +1,7 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import ProgressiveImage from './ProgressiveImage'
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 
-const NewReleases = props => {
+const AlbumListHorizontal = props => {
     return (
         <TouchableOpacity
             onPress={() => props.onSelect()}
@@ -10,7 +9,7 @@ const NewReleases = props => {
         >
             <View style={styles.listItem}>
                 <View style={styles.listItemTextContainer}>
-                    <ProgressiveImage
+                    <Image
                         style={styles.image}
                         source={{ uri: props.albumDetails.item.images[1].url }}
                     />
@@ -54,4 +53,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default NewReleases
+export default AlbumListHorizontal

@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet, Button } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import NewReleases from '../components/NewReleases';
+import AlbumListHorizontal from '../components/AlbumListHorizontal';
 import { FlatList } from 'react-native-gesture-handler';
-import { getAccessToken, getNowPlaying } from '../utils/SpotifyTokenFetcher'
+import { getAccessToken, getNowPlaying, getRecentlyPlayed } from '../utils/SpotifyTokenFetcher'
 
 const HomeScreen = props => {
-    const [newReleases, setNewReleases] = useState([])
     const [accessToken, setAccessToken] = useState('')
     const [nowPlaying, setNowPlaying] = useState('')
+    const [recentlyPlayed, setRecentlyPlayed] = useState([])
+    const [newReleases, setNewReleases] = useState([])
 
     const getNewReleases = () => {
         console.log('Getting new releases...')
@@ -24,14 +25,16 @@ const HomeScreen = props => {
 
     if (accessToken.length == 0) {
         getAccessToken(setAccessToken)
-    }
-
-    if (accessToken.length !== 0 & newReleases.length == 0) {
-        getNewReleases()
-    }
-
-    if (accessToken.length !== 0 & nowPlaying.length == 0) {
-        getNowPlaying(setNowPlaying)
+    } else {
+        if (newReleases.length == 0) {
+            getNewReleases()
+        }
+        if (nowPlaying.length == 0) {
+            getNowPlaying(setNowPlaying)
+        }
+        if (recentlyPlayed.length == 0) {
+            getRecentlyPlayed(setRecentlyPlayed)
+        }
     }
 
     return (
@@ -68,7 +71,7 @@ const HomeScreen = props => {
                     data={newReleases}
                     keyExtractor={(item, index) => item.id}
                     renderItem={albumData => (
-                        <NewReleases
+                        <AlbumListHorizontal
                             albumDetails={albumData}
                             onSelect={() => props.navigation.navigate('Album', { imageURL: albumData.item.images[0].url, albumName: albumData.item.name, albumId: albumData.item.id, artistName: albumData.item.artists[0].name })}
                         />

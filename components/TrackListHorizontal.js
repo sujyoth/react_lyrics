@@ -1,15 +1,18 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 
-const SearchItem = props => {
+const TrackListHorizontal = props => {
     return (
-        <TouchableOpacity onPress={() => props.onSelect()}>
+        <TouchableOpacity
+            onPress={() => props.onSelect()}
+            activeOpacity={0.8}
+        >
             <View style={styles.listItem}>
-                <Image
-                    style={styles.image}
-                    source={{ uri: props.songDetails.item.album.images[0].url }}
-                />
                 <View style={styles.listItemTextContainer}>
+                    <Image
+                        style={styles.image}
+                        source={{ uri: props.songDetails.item.images[1].url }}
+                    />
                     <Text style={styles.titleText}>
                         {props.songDetails.item.name}
                     </Text>
@@ -17,7 +20,6 @@ const SearchItem = props => {
                         {props.songDetails.item.artists[0].name}
                     </Text>
                 </View>
-
             </View>
         </TouchableOpacity>
     )
@@ -26,18 +28,17 @@ const SearchItem = props => {
 const styles = StyleSheet.create({
     listItem: {
         padding: 10,
+        width: 190,
         flexDirection: 'row',
         alignItems: 'center',
-        borderBottomColor: '#283854',
-        borderBottomWidth: 0.5
     },
     listItemTextContainer: {
         flex: 1,
-        paddingLeft: 17,
         flexDirection: 'column'
     },
     titleText: {
         fontSize: 14,
+        fontWeight: 'bold',
         color: '#cfd9e5'
     },
     artistText: {
@@ -45,11 +46,12 @@ const styles = StyleSheet.create({
         color: '#cfd9e5'
     },
     image: {
-        width: 50,
-        height: 50,
+        width: 180,
+        height: 180,
         alignSelf: 'center',
         flex: 0
     }
 })
 
-export default SearchItem
+
+export default TrackListHorizontal

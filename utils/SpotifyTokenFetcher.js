@@ -106,4 +106,60 @@ const getNowPlaying = (setNowPlaying, setAccessToken) => {
     }
 }
 
-export { getAccessToken, getNowPlaying }
+const getRecentlyPlayed = (setRecentlyPlayed) => {
+    console.log('Fetching recently played...')
+    const access_token = Keys['access_token']
+    let id_list = []
+    let track_list = []
+    if (access_token !== undefined) {
+        fetch('https://api.spotify.com/v1/me/player/recently-played', {
+            headers: {
+                'Authorization': `Bearer ${access_token}`
+            }
+        })
+            .then(async response => {
+                if (response.status == 204) {
+                    console.log('No recently played songs.')
+                } else {
+                    const tracksInfo = await response.json()
+                    tracksInfo.items.forEach(item => {
+                        id_list.push(item.track.id)
+                    })
+                    track_list = await getSeveralTracks(id_list)
+                    setRecentlyPlayed(track_list)
+                }
+            })
+            .catch(error => console.log(error))
+    } else {
+        console.log('Invalid access token.')
+    }
+}
+
+const getSeveralTracks = async (id_list) => {
+    console.log('Fetching several tracks...')
+    const access_token = Keys['access_token']
+    let track_list = []
+    if (access_token !== undefined) {
+        await fetch(`https://api.spotify.com/v1/tracks?ids=${id_list.join()}`, {
+            headers: {
+                'Authorization': `Bearer ${access_token}`
+            }
+        })
+            .then(async response => {
+                if (response.status == 204) {
+                    console.log('No recently played songs.')
+                } else {
+                    const tracksInfo = await response.json()
+                    tracksInfo.tracks.forEach(track => {
+                        track_list.push(track)
+                    })
+                }
+            })
+            .catch(error => console.log(error))
+    } else {
+        console.log('Invalid access token.')
+    }
+    return track_list
+}
+
+export { getAccessToken, getNowPlaying, getRecentlyPlayed }

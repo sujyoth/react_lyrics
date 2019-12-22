@@ -27,17 +27,12 @@ const HomeScreen = props => {
     if (accessToken.length == 0) {
         getAccessToken(setAccessToken)
     } else {
-        if (newReleases.length == 0) {
+        if (newReleases.length == 0)
             getNewReleases()
-        }
-        if (nowPlaying.length == 0) {
+        if (nowPlaying.length == 0)
             getNowPlaying(setNowPlaying)
-        }
-        if (recentlyPlayed.length == 0) {
+        if (recentlyPlayed.length == 0)
             getRecentlyPlayed(setRecentlyPlayed)
-        } else {
-            console.log(recentlyPlayed[0])
-        }
     }
 
     return (

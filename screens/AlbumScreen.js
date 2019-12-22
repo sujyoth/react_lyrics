@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { FlatList } from 'react-native-gesture-handler';
-import Tracks from '../components/Tracks'
+import TrackListVertical from '../components/TrackListVertical'
 import { getAccessToken } from '../utils/SpotifyTokenFetcher'
 
 const AlbumScreen = props => {
@@ -31,7 +31,7 @@ const AlbumScreen = props => {
                     data={tracks}
                     keyExtractor={(item, index) => item.id}
                     renderItem={trackData => (
-                        <Tracks
+                        <TrackListVertical
                             trackDetails={trackData}
                             onSelect={() => props.navigation.navigate('GeniusLyrics', { imageURL: props.navigation.getParam('imageURL'), songName: trackData.item.name, artistName: trackData.item.artists[0].name, songId: trackData.item.id, })}
                         />

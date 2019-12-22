@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 
-const Tracks = props => {
+const TrackListVertical = props => {
     return (
         <TouchableOpacity onPress={() => props.onSelect()}>
             <View style={styles.listItem}>
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Tracks
+export default TrackListVertical

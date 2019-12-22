@@ -50,6 +50,7 @@ const GeniusLyricsScreen = props => {
                             setLyrics(soup.find('div', class_ = 'lyrics').getText('\n'))
                         }
                     })
+                break
             }
         }
     }

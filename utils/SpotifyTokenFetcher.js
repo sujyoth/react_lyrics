@@ -92,11 +92,11 @@ const getNowPlaying = (setNowPlaying, setAccessToken) => {
         })
             .then(async response => {
                 if (response.status == 204) {
-                    console.log('No song playing')
+                    console.log('No song playing.')
                 } else {
                     const trackInfo = await response.json()
                     setNowPlaying(trackInfo)
-                    console.log(`${trackInfo.item.name} - ${trackInfo.item.artists[0].name}`)
+                    console.log(`Now Playing: ${trackInfo.item.name} - ${trackInfo.item.artists[0].name}`)
                 }
             })
             .catch(error => console.log(error))

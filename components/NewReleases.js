@@ -29,6 +29,7 @@ const NewReleases = props => {
 const styles = StyleSheet.create({
     listItem: {
         padding: 10,
+        width: 190,
         flexDirection: 'row',
         alignItems: 'center',
     },

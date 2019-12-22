@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native'
+import { Text, View, ScrollView, TouchableOpacity, RefreshControl, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import AlbumListHorizontal from '../components/AlbumListHorizontal'
 import TrackListHorizontal from '../components/TrackListHorizontal'
@@ -11,6 +11,7 @@ const HomeScreen = props => {
     const [nowPlaying, setNowPlaying] = useState('')
     const [recentlyPlayed, setRecentlyPlayed] = useState([])
     const [newReleases, setNewReleases] = useState([])
+    const [refreshing, setRefreshing] = useState(false)
 
     const getNewReleases = () => {
         console.log('Getting new releases...')
@@ -36,7 +37,18 @@ const HomeScreen = props => {
     }
 
     return (
-        <ScrollView style={styles.screen} >
+        <ScrollView
+            style={styles.screen}
+            refreshControl={
+                <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={() => {
+                        setNowPlaying('')
+                        setRecentlyPlayed([])
+                    }}
+                />
+            }
+        >
             <Text style={styles.activityHeader}>Now Playing</Text>
             <View style={styles.nowPlayingContainer}>
                 {
@@ -48,18 +60,7 @@ const HomeScreen = props => {
                             <Text style={styles.activityHeader}>Nothing</Text>
                         )
                 }
-                <TouchableOpacity
-                    activeOpacity={0.7}
-                    onPress={() => getNowPlaying(setNowPlaying)}
-                    style={styles.buttonContainer}
-                >
-                    <View>
-                        <Icon
-                            name="refresh"
-                            style={styles.searchButton}
-                        />
-                    </View>
-                </TouchableOpacity>
+                
             </View>
             <Text style={styles.activityHeader}>New Releases</Text>
             <View>
@@ -87,7 +88,7 @@ const HomeScreen = props => {
                         <TrackListHorizontal
                             songDetails={songData}
                             onSelect={() => props.navigation.navigate('GeniusLyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name, songId: songData.item.id, imageURL: songData.item.album.images[0].url })}
-                            //onSelect={() => props.navigation.navigate('Album', { imageURL: songData.item.images[0].url, albumName: songData.item.name, albumId: songData.item.id, artistName: songData.item.artists[0].name })}
+                        //onSelect={() => props.navigation.navigate('Album', { imageURL: songData.item.images[0].url, albumName: songData.item.name, albumId: songData.item.id, artistName: songData.item.artists[0].name })}
                         />
                     )}
                 />

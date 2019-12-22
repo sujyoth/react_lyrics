@@ -95,8 +95,7 @@ const getNowPlaying = (setNowPlaying, setAccessToken) => {
                     console.log('No song playing')
                 } else {
                     const trackInfo = await response.json()
-                    setNowPlaying(trackInfo.item.name)
-                    console.log('Now playing: ', trackInfo.item.name)
+                    setNowPlaying(trackInfo)
                 }
             })
             .catch(error => console.log(error))

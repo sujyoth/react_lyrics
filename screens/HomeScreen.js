@@ -38,11 +38,15 @@ const HomeScreen = props => {
         <View style={styles.screen} >
             <Text style={styles.activityHeader}>Now Playing</Text>
             <View style={styles.nowPlayingContainer}>
-            
-                <TouchableOpacity>
-                    <Text style={styles.activityHeader}>{nowPlaying !== '' ? nowPlaying : 'Nothing'}</Text>
-                </TouchableOpacity>
-
+                {
+                    nowPlaying.item !== undefined ? (
+                        <TouchableOpacity onPress={() => props.navigation.navigate('GeniusLyrics', { songName: nowPlaying.item.name, artistName: nowPlaying.item.artists[0].name, songId: nowPlaying.item.id, imageURL: nowPlaying.item.album.images[0].url })}>
+                            <Text style={styles.activityHeader}>{nowPlaying.item.name}</Text>
+                        </TouchableOpacity>
+                    ) : (
+                            <Text style={styles.activityHeader}>Nothing</Text>
+                        )
+                }
                 <TouchableOpacity
                     activeOpacity={0.7}
                     onPress={() => getNowPlaying(setNowPlaying)}

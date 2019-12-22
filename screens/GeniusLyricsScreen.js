@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
     },
     headerContentContainer: {
         paddingTop: 20,
+        width: '90%',
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'center',

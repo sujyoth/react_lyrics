@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, ScrollView, TouchableOpacity, RefreshControl, StyleSheet } from 'react-native'
+import { Text, View, ScrollView, TouchableOpacity, RefreshControl, Image, StyleSheet } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import AlbumListHorizontal from '../components/AlbumListHorizontal'
 import TrackListHorizontal from '../components/TrackListHorizontal'
@@ -50,18 +50,25 @@ const HomeScreen = props => {
             }
         >
             <Text style={styles.activityHeader}>Now Playing</Text>
-            <View style={styles.nowPlayingContainer}>
-                {
-                    nowPlaying.item !== undefined ? (
-                        <TouchableOpacity onPress={() => props.navigation.navigate('GeniusLyrics', { songName: nowPlaying.item.name, artistName: nowPlaying.item.artists[0].name, songId: nowPlaying.item.id, imageURL: nowPlaying.item.album.images[0].url })}>
-                            <Text style={styles.activityHeader}>{`${nowPlaying.item.name} - ${nowPlaying.item.artists[0].name}`}</Text>
-                        </TouchableOpacity>
-                    ) : (
-                            <Text style={styles.activityHeader}>Nothing</Text>
-                        )
-                }
-                
-            </View>
+            {
+                nowPlaying.item !== undefined ? (
+                    <TouchableOpacity onPress={() => props.navigation.navigate('GeniusLyrics', { songName: nowPlaying.item.name, artistName: nowPlaying.item.artists[0].name, songId: nowPlaying.item.id, imageURL: nowPlaying.item.album.images[0].url })}>
+                        <View style={styles.nowPlayingContainer}>
+                            <Image
+                                style={styles.nowPlayingImage}
+                                source={{ uri: nowPlaying.item.album.images[0].url }}
+                            />
+                            <View style={styles.nowPlayingTextContainer}>
+                                <Text style={styles.nowPlayingSongText}>{`${nowPlaying.item.name}`}</Text>
+                                <Text style={styles.nowPlayingArtistText}>{`${nowPlaying.item.album.name}`}</Text>
+                                <Text style={styles.nowPlayingArtistText}>{`${nowPlaying.item.artists[0].name}`}</Text>
+                            </View>
+                        </View>
+                    </TouchableOpacity>
+                ) : (
+                        <Text style={styles.activityHeader}>Nothing</Text>
+                    )
+            }
             <Text style={styles.activityHeader}>New Releases</Text>
             <View>
                 <FlatList
@@ -88,7 +95,6 @@ const HomeScreen = props => {
                         <TrackListHorizontal
                             songDetails={songData}
                             onSelect={() => props.navigation.navigate('GeniusLyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name, songId: songData.item.id, imageURL: songData.item.album.images[0].url })}
-                        //onSelect={() => props.navigation.navigate('Album', { imageURL: songData.item.images[0].url, albumName: songData.item.name, albumId: songData.item.id, artistName: songData.item.artists[0].name })}
                         />
                     )}
                 />
@@ -110,9 +116,6 @@ const styles = StyleSheet.create({
     buttonContainer: {
         paddingHorizontal: 10
     },
-    scroll: {
-        paddingHorizontal: 10
-    },
     activityHeader: {
         padding: 10,
         fontSize: 20,
@@ -120,24 +123,27 @@ const styles = StyleSheet.create({
         color: '#cfd9e5',
     },
     nowPlayingContainer: {
+        padding: 10,
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignContent: 'center'
+        alignItems: 'center'
     },
-    songNameText: {
-        paddingHorizontal: 10,
-        fontSize: 30,
+    nowPlayingImage: {
+        width: 90,
+        height: 90,
+    },
+    nowPlayingTextContainer: {
+        paddingLeft: 17,
+        width: '80%',
+        flexDirection: 'column',
+    },
+    nowPlayingSongText: {
+        fontSize: 19,
+        fontWeight: 'bold',
         color: '#cfd9e5',
-        paddingHorizontal: 10
     },
-    artistNameText: {
-        paddingHorizontal: 10,
-        fontSize: 20,
+    nowPlayingArtistText: {
+        fontSize: 17,
         color: '#cfd9e5',
-    },
-    lyricsText: {
-        fontSize: 14,
-        color: '#cfd9e5'
     }
 })
 

@@ -41,7 +41,7 @@ const HomeScreen = props => {
                 {
                     nowPlaying.item !== undefined ? (
                         <TouchableOpacity onPress={() => props.navigation.navigate('GeniusLyrics', { songName: nowPlaying.item.name, artistName: nowPlaying.item.artists[0].name, songId: nowPlaying.item.id, imageURL: nowPlaying.item.album.images[0].url })}>
-                            <Text style={styles.activityHeader}>{`${nowPlaying.item.name} - ${nowPlaying.item.artists[0].name }`}</Text>
+                            <Text style={styles.activityHeader}>{`${nowPlaying.item.name} - ${nowPlaying.item.artists[0].name}`}</Text>
                         </TouchableOpacity>
                     ) : (
                             <Text style={styles.activityHeader}>Nothing</Text>

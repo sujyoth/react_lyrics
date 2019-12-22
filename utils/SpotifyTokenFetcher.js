@@ -5,7 +5,7 @@ import * as Keys from '../assets/keys.json'
 const handleSpotifyLogin = async (setAccessToken) => {
     let redirectUrl = AuthSession.getRedirectUrl()
     let results = await AuthSession.startAsync({
-        authUrl: `https://accounts.spotify.com/authorize?client_id=${Keys['client-id']}&redirect_uri=${encodeURIComponent(redirectUrl)}&scope=user-read-currently-playing&response_type=code`
+        authUrl: `https://accounts.spotify.com/authorize?client_id=${Keys['client-id']}&redirect_uri=${encodeURIComponent(redirectUrl)}&scope=user-read-recently-played+user-read-currently-playing&response_type=code`
     })
 
     if (results.type !== "success") {

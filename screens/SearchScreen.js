@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, TextInput, Keyboard } from 'react-native'
 import SearchItem from '../components/SearchItem'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { throttle, debounce } from 'throttle-debounce'
 import { getAccessToken } from '../utils/SpotifyTokenFetcher'
 
 const getSearchResults = async (accessToken, setAccessToken, searchedText, setSearchResults) => {
@@ -24,18 +23,7 @@ const SearchScreen = props => {
   const [searchResults, setSearchResults] = useState([])
   const [accessToken, setAccessToken] = useState('')
 
-  const throttleSearch = throttle(400, getSearchResults)
-  const debounceSearch = debounce(700, getSearchResults)
-
   useEffect(() => {
-    /* 
-    if (searchedText.length > 0) {
-      if (searchedText.length < 5 || searchedText.endsWith(' '))
-        throttleSearch()
-      else
-        debounceSearch()
-    } 
-    */
     getSearchResults(accessToken, setAccessToken, searchedText, setSearchResults)
   }, [searchedText])
 

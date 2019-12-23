@@ -21,6 +21,11 @@ const GeniusLyricsScreen = props => {
         outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
         extrapolate: 'clamp'
     })
+    const headerBackgroundColor = scrollYAnimatedValue.interpolate({
+        inputRange: [0, (HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT)],
+        outputRange: ['#00000055', '#f4511e'],
+        extrapolate: 'clamp'
+    })
 
     const requestToken = async (songName, artistName) => {
         const url = `https://api.genius.com/search?q=${songName} ${artistName}`
@@ -61,17 +66,17 @@ const GeniusLyricsScreen = props => {
                     style={styles.image}
                     source={{ uri: props.navigation.getParam('imageURL') }}
                 >
-                    <View style={styles.headerContentContainer}>
+                    <Animated.View style={[styles.headerContentContainer, { backgroundColor: headerBackgroundColor }]}>
                         <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.goBack()}>
                             <View>
                                 <Icon name="arrow-back" style={styles.Button} />
                             </View>
                         </TouchableOpacity>
                         <View>
-                            <Text style={styles.songNameText}>{songDetails.songName}</Text>
-                            <Text style={styles.artistNameText}>{songDetails.artistName}</Text>
+                            <Text numberOfLines={1} style={styles.songNameText}>{songDetails.songName}</Text>
+                            <Text numberOfLines={1} style={styles.artistNameText}>{songDetails.artistName}</Text>
                         </View>
-                    </View>
+                    </Animated.View>
                 </ImageBackground>
             </Animated.View>
             <ScrollView
@@ -103,10 +108,11 @@ const styles = StyleSheet.create({
     },
     headerContentContainer: {
         paddingTop: 20,
-        width: '90%',
+        width: '100%',
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'center',
+        ...StyleSheet.absoluteFillObject,
     },
     Button: {
         padding: 5,

@@ -13,10 +13,10 @@ const AlbumListHorizontal = props => {
                         style={styles.image}
                         source={{ uri: props.albumDetails.item.images[1].url }}
                     />
-                    <Text style={styles.titleText}>
+                    <Text numberOfLines={1} style={styles.titleText}>
                         {props.albumDetails.item.name}
                     </Text>
-                    <Text style={styles.artistText}>
+                    <Text numberOfLines={1} style={styles.artistText}>
                         {props.albumDetails.item.artists[0].name}
                     </Text>
                 </View>

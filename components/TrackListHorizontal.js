@@ -13,10 +13,10 @@ const TrackListHorizontal = props => {
                         style={styles.image}
                         source={{ uri: props.songDetails.item.album.images[0].url }}
                     />
-                    <Text style={styles.titleText}>
+                    <Text numberOfLines={1} style={styles.titleText}>
                         {props.songDetails.item.name}
                     </Text>
-                    <Text style={styles.artistText}>
+                    <Text numberOfLines={1} style={styles.artistText}>
                         {props.songDetails.item.artists[0].name}
                     </Text>
                 </View>

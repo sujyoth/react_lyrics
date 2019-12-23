@@ -43,8 +43,8 @@ const HomeScreen = props => {
                 <RefreshControl
                     refreshing={refreshing}
                     onRefresh={() => {
-                        setNowPlaying('')
-                        setRecentlyPlayed([])
+                        getNowPlaying(setNowPlaying)
+                        getRecentlyPlayed(setRecentlyPlayed)
                     }}
                 />
             }
@@ -59,9 +59,9 @@ const HomeScreen = props => {
                                 source={{ uri: nowPlaying.item.album.images[0].url }}
                             />
                             <View style={styles.nowPlayingTextContainer}>
-                                <Text style={styles.nowPlayingSongText}>{`${nowPlaying.item.name}`}</Text>
-                                <Text style={styles.nowPlayingArtistText}>{`${nowPlaying.item.album.name}`}</Text>
-                                <Text style={styles.nowPlayingArtistText}>{`${nowPlaying.item.artists[0].name}`}</Text>
+                                <Text numberOfLines={1} style={styles.nowPlayingSongText}>{`${nowPlaying.item.name}`}</Text>
+                                <Text numberOfLines={1} style={styles.nowPlayingArtistText}>{`${nowPlaying.item.album.name}`}</Text>
+                                <Text numberOfLines={1} style={styles.nowPlayingArtistText}>{`${nowPlaying.item.artists[0].name}`}</Text>
                             </View>
                         </View>
                     </TouchableOpacity>
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     },
     nowPlayingTextContainer: {
         paddingLeft: 17,
-        width: '80%',
+        width: '75%',
         flexDirection: 'column',
     },
     nowPlayingSongText: {

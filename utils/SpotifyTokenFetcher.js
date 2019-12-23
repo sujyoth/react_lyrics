@@ -153,6 +153,7 @@ const getSeveralTracks = async (id_list) => {
                     tracksInfo.tracks.forEach(track => {
                         track_list.push(track)
                     })
+                    console.log('Several songs fetched.')
                 }
             })
             .catch(error => console.log(error))

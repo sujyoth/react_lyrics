@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     },
     lyricsText: {
         padding: 10,
-        fontSize: 17,
+        fontSize: 16,
         lineHeight: 24,
         color: '#cfd9e5'
     },

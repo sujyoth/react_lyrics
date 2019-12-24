@@ -7,12 +7,13 @@ const TrackListHorizontal = props => {
             onPress={() => props.onSelect()}
             activeOpacity={0.8}
         >
-            <View style={styles.listItem}>
+            <View style={styles.listItemContainer}>
+                <Image
+                    style={styles.image}
+                    source={{ uri: props.songDetails.item.album.images[0].url }}
+                />
                 <View style={styles.listItemTextContainer}>
-                    <Image
-                        style={styles.image}
-                        source={{ uri: props.songDetails.item.album.images[0].url }}
-                    />
+
                     <Text numberOfLines={1} style={styles.titleText}>
                         {props.songDetails.item.name}
                     </Text>
@@ -26,15 +27,17 @@ const TrackListHorizontal = props => {
 }
 
 const styles = StyleSheet.create({
-    listItem: {
-        padding: 10,
+    listItemContainer: {
+        paddingHorizontal: 10,
         width: 190,
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
     },
     listItemTextContainer: {
+        paddingTop: 5,
         flex: 1,
-        flexDirection: 'column'
+        flexDirection: 'column',
+        alignSelf: 'flex-start'
     },
     titleText: {
         fontSize: 14,

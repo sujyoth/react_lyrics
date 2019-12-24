@@ -72,7 +72,7 @@ const GeniusLyricsScreen = props => {
                                 <Icon name="arrow-back" style={styles.Button} />
                             </View>
                         </TouchableOpacity>
-                        <View>
+                        <View style={styles.headerTextContainer}>
                             <Text numberOfLines={1} style={styles.songNameText}>{songDetails.songName}</Text>
                             <Text numberOfLines={1} style={styles.artistNameText}>{songDetails.artistName}</Text>
                         </View>
@@ -109,10 +109,12 @@ const styles = StyleSheet.create({
     headerContentContainer: {
         ...StyleSheet.absoluteFillObject,
         paddingTop: 20,
-        width: '90%',
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'center',
+    },
+    headerTextContainer: {
+        width: '90%'
     },
     Button: {
         padding: 5,

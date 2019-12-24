@@ -7,12 +7,12 @@ const AlbumListHorizontal = props => {
             onPress={() => props.onSelect()}
             activeOpacity={0.8}
         >
-            <View style={styles.listItem}>
+            <View style={styles.listItemContainer}>
+                <Image
+                    style={styles.image}
+                    source={{ uri: props.albumDetails.item.images[1].url }}
+                />
                 <View style={styles.listItemTextContainer}>
-                    <Image
-                        style={styles.image}
-                        source={{ uri: props.albumDetails.item.images[1].url }}
-                    />
                     <Text numberOfLines={1} style={styles.titleText}>
                         {props.albumDetails.item.name}
                     </Text>
@@ -26,15 +26,17 @@ const AlbumListHorizontal = props => {
 }
 
 const styles = StyleSheet.create({
-    listItem: {
-        padding: 10,
+    listItemContainer: {
+        paddingHorizontal: 10,
         width: 190,
-        flexDirection: 'row',
+        flexDirection: 'column',
         alignItems: 'center',
     },
     listItemTextContainer: {
+        paddingTop: 5,
         flex: 1,
-        flexDirection: 'column'
+        flexDirection: 'column',
+        alignSelf: 'flex-start'
     },
     titleText: {
         fontSize: 14,

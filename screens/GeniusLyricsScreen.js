@@ -107,12 +107,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     headerContentContainer: {
+        ...StyleSheet.absoluteFillObject,
         paddingTop: 20,
-        width: '100%',
+        width: '90%',
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'center',
-        ...StyleSheet.absoluteFillObject,
     },
     Button: {
         padding: 5,

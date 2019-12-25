@@ -6,6 +6,34 @@ import JSSoup from 'jssoup'
 const HEADER_MIN_HEIGHT = 90;
 const HEADER_MAX_HEIGHT = 300;
 
+const fetchLyrics = (songName, artistName, setLyrics) => {
+    const url = `https://api.genius.com/search?q=${songName} ${artistName}`
+    fetch(url, {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer RcmP8mpY_CwECczrhTP4NvYh358ZDZxCy346dfkf2NRdUFGcuP9wJovLy5_hSGkz'
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            const response = data['response']['hits']
+            for (i in response) {
+                console.log(response[i]['result']['primary_artist']['name'])
+                if (response[i]['result']['primary_artist']['name'].toLowerCase() == artistName.toLowerCase()) {
+                    const url = response[i]['result']['url']
+                    fetch(url)
+                        .then(resp => resp.text())
+                        .then(text => {
+                            const soup = new JSSoup(text)
+                            setLyrics(soup.find('div', class_ = 'lyrics').getText().replace(/\[/g, '\n[').replace(/\]/g, ']\n').replace(/\]\n\n/g, ']\n').trim())
+                        })
+                    break
+                }
+            }
+        })
+        .catch(error => console.log(error))
+}
+
 const GeniusLyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({
         songName: props.navigation.getParam('songName'),
@@ -13,7 +41,6 @@ const GeniusLyricsScreen = props => {
         songId: props.navigation.getParam('songId')
     })
     const [lyrics, setLyrics] = useState('')
-    const [response, setResponse] = useState('')
 
     const scrollYAnimatedValue = new Animated.Value(0)
     const headerHeight = scrollYAnimatedValue.interpolate({
@@ -27,37 +54,8 @@ const GeniusLyricsScreen = props => {
         extrapolate: 'clamp'
     })
 
-    const requestToken = async (songName, artistName) => {
-        const url = `https://api.genius.com/search?q=${songName} ${artistName}`
-        await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Authorization': 'Bearer RcmP8mpY_CwECczrhTP4NvYh358ZDZxCy346dfkf2NRdUFGcuP9wJovLy5_hSGkz'
-            }
-        })
-            .then(response => response.json())
-            .then(data => setResponse((data['response']['hits'])))
-            .catch(error => { })
-    }
-
-    if (response == '') {
-        requestToken(props.navigation.getParam('songName'), props.navigation.getParam('artistName'))
-    } else {
-        for (i in response) {
-            if (response[i]['result']['primary_artist']['name'].toLowerCase() == props.navigation.getParam('artistName').toLowerCase()) {
-                url = (response[i]['result']['url'])
-                fetch(url)
-                    .then(resp => resp.text())
-                    .then(text => {
-                        var soup = new JSSoup(text)
-                        if (lyrics == '') {
-                            setLyrics(soup.find('div', class_ = 'lyrics').getText().replace(/\[/g, '\n[').replace(/\]/g, ']\n').replace(/\]\n\n/g, ']\n').trim())
-                            console.log(soup.find('div', class_ = 'lyrics').getText())
-                        }
-                    })
-                break
-            }
-        }
+    if (lyrics == '') {
+        setLyrics(fetchLyrics(props.navigation.getParam('songName'), props.navigation.getParam('artistName'), setLyrics))
     }
 
     return (

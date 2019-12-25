@@ -1,10 +1,18 @@
 import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 
 const TrackListVertical = props => {
     return (
         <TouchableOpacity onPress={() => props.onSelect()}>
             <View style={styles.listItem}>
+                {
+                    props.showImage && (
+                        <Image
+                            style={styles.image}
+                            source={{ uri: props.trackDetails.item.album.images[0].url }}
+                        />
+                    )
+                }
                 <View style={styles.listItemTextContainer}>
                     <Text numberOfLines={1} style={styles.titleText}>
                         {props.trackDetails.item.name}

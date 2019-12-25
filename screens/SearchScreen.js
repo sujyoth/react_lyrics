@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, ScrollView, FlatList, TouchableOpacity, TextInput, Keyboard } from 'react-native'
-import SearchItem from '../components/SearchItem'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { getAccessToken } from '../utils/SpotifyTokenFetcher'
+import TrackListVertical from '../components/TrackListVertical'
 
 const getSearchResults = async (accessToken, setAccessToken, searchedText, setSearchResults) => {
   if (accessToken.length == 0) {
@@ -59,10 +59,11 @@ const SearchScreen = props => {
           onScrollBeginDrag={Keyboard.dismiss}
           data={searchResults}
           keyExtractor={(item, index) => item.id}
-          renderItem={songData => (
-            <SearchItem
-              songDetails={songData}
-              onSelect={() => props.navigation.navigate('GeniusLyrics', { songName: songData.item.name, artistName: songData.item.artists[0].name, songId: songData.item.id, imageURL: songData.item.album.images[0].url })}
+          renderItem={trackData => (
+            <TrackListVertical
+              trackDetails={trackData}
+              showImage={true}
+              onSelect={() => props.navigation.navigate('GeniusLyrics', { songName: trackData.item.name, artistName: trackData.item.artists[0].name, songId: trackData.item.id, imageURL: trackData.item.album.images[0].url })}
             />
           )}
         />

@@ -33,6 +33,7 @@ const AlbumScreen = props => {
                     renderItem={trackData => (
                         <TrackListVertical
                             trackDetails={trackData}
+                            showImage={false}
                             onSelect={() => props.navigation.navigate('GeniusLyrics', { imageURL: props.navigation.getParam('imageURL'), songName: trackData.item.name, artistName: trackData.item.artists[0].name, songId: trackData.item.id, })}
                         />
                     )}

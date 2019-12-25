@@ -1,38 +1,10 @@
 import React, { useState } from 'react'
 import { Text, View, StyleSheet, Platform, Animated, ScrollView, ImageBackground, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import JSSoup from 'jssoup'
+import fetchLyrics from '../utils/GeniusLyricsFetcher'
 
 const HEADER_MIN_HEIGHT = 90;
 const HEADER_MAX_HEIGHT = 300;
-
-const fetchLyrics = (songName, artistName, setLyrics) => {
-    const url = `https://api.genius.com/search?q=${songName} ${artistName}`
-    fetch(url, {
-        method: 'GET',
-        headers: {
-            'Authorization': 'Bearer RcmP8mpY_CwECczrhTP4NvYh358ZDZxCy346dfkf2NRdUFGcuP9wJovLy5_hSGkz'
-        }
-    })
-        .then(response => response.json())
-        .then(data => {
-            const response = data['response']['hits']
-            for (i in response) {
-                console.log(response[i]['result']['primary_artist']['name'])
-                if (response[i]['result']['primary_artist']['name'].toLowerCase() == artistName.toLowerCase()) {
-                    const url = response[i]['result']['url']
-                    fetch(url)
-                        .then(resp => resp.text())
-                        .then(text => {
-                            const soup = new JSSoup(text)
-                            setLyrics(soup.find('div', class_ = 'lyrics').getText().replace(/\[/g, '\n[').replace(/\]/g, ']\n').replace(/\]\n\n/g, ']\n').trim())
-                        })
-                    break
-                }
-            }
-        })
-        .catch(error => console.log(error))
-}
 
 const GeniusLyricsScreen = props => {
     const [songDetails, setSongDetails] = useState({
@@ -54,9 +26,9 @@ const GeniusLyricsScreen = props => {
         extrapolate: 'clamp'
     })
 
-    if (lyrics == '') {
-        fetchLyrics(props.navigation.getParam('songName'), props.navigation.getParam('artistName'), setLyrics)
-    }
+    if (lyrics == '') 
+        fetchLyrics(props.navigation.getParam('songName'), props.navigation.getParam('artistName'))
+            .then(result => setLyrics(result))
 
     return (
         <View style={styles.screen}>

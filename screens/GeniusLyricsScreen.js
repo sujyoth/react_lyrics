@@ -55,7 +55,7 @@ const GeniusLyricsScreen = props => {
     })
 
     if (lyrics == '') {
-        setLyrics(fetchLyrics(props.navigation.getParam('songName'), props.navigation.getParam('artistName'), setLyrics))
+        fetchLyrics(props.navigation.getParam('songName'), props.navigation.getParam('artistName'), setLyrics)
     }
 
     return (

@@ -6,10 +6,10 @@ const TrackListVertical = props => {
         <TouchableOpacity onPress={() => props.onSelect()}>
             <View style={styles.listItem}>
                 <View style={styles.listItemTextContainer}>
-                    <Text style={styles.titleText}>
+                    <Text numberOfLines={1} style={styles.titleText}>
                         {props.trackDetails.item.name}
                     </Text>
-                    <Text style={styles.artistText}>
+                    <Text numberOfLines={1} style={styles.artistText}>
                         {props.trackDetails.item.artists[0].name}
                     </Text>
                 </View>
@@ -31,11 +31,12 @@ const styles = StyleSheet.create({
         flexDirection: 'column'
     },
     titleText: {
-        fontSize: 14,
+        fontSize: 15,
+        fontWeight: 'bold',
         color: '#cfd9e5'
     },
     artistText: {
-        fontSize: 12,
+        fontSize: 13,
         color: '#cfd9e5'
     },
     image: {

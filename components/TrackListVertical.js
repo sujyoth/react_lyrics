@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native'
 const TrackListVertical = props => {
     return (
         <TouchableOpacity onPress={() => props.onSelect()}>
-            <View style={styles.listItem}>
+            <View style={styles.listItemContainer}>
                 {
                     props.showImage && (
                         <Image
@@ -27,7 +27,7 @@ const TrackListVertical = props => {
 }
 
 const styles = StyleSheet.create({
-    listItem: {
+    listItemContainer: {
         padding: 10,
         flexDirection: 'row',
         alignItems: 'center',

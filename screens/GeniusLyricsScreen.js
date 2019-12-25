@@ -51,7 +51,8 @@ const GeniusLyricsScreen = props => {
                     .then(text => {
                         var soup = new JSSoup(text)
                         if (lyrics == '') {
-                            setLyrics(soup.find('div', class_ = 'lyrics').getText('\n'))
+                            setLyrics(soup.find('div', class_ = 'lyrics').getText().replace(/\[/g, '\n[').replace(/\]/g, ']\n').replace(/\]\n\n/g, ']\n').trim())
+                            console.log(soup.find('div', class_ = 'lyrics').getText())
                         }
                     })
                 break
@@ -69,7 +70,7 @@ const GeniusLyricsScreen = props => {
                     <Animated.View style={[styles.headerContentContainer, { backgroundColor: headerBackgroundColor }]}>
                         <TouchableOpacity activeOpacity={0.7} onPress={() => props.navigation.goBack()}>
                             <View>
-                                <Icon name="arrow-back" style={styles.Button} />
+                                <Icon name="arrow-back" style={styles.button} />
                             </View>
                         </TouchableOpacity>
                         <View style={styles.headerTextContainer}>
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     headerTextContainer: {
         width: '90%'
     },
-    Button: {
+    button: {
         padding: 5,
         fontSize: 25,
         color: '#fff'

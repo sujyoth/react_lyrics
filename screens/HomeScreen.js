@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Text, View, ScrollView, TouchableOpacity, RefreshControl, Image, StyleSheet } from 'react-native'
+import { Text, View, ScrollView, TouchableOpacity, RefreshControl, Image, StyleSheet, FlatList } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import AlbumListHorizontal from '../components/AlbumListHorizontal'
 import TrackListHorizontal from '../components/TrackListHorizontal'
-import { FlatList } from 'react-native-gesture-handler'
 import { getAccessToken, getNowPlaying, getRecentlyPlayed } from '../utils/SpotifyTokenFetcher'
 
 const HomeScreen = props => {
@@ -105,7 +104,7 @@ const HomeScreen = props => {
 
 const styles = StyleSheet.create({
     screen: {
-        height: '100%',
+        paddingBottom: 10,
         backgroundColor: '#192231'
     },
     searchButton: {
